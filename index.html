@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>DETHANGALA — Peak Expedition · 10–11 Oct 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070d14'/%3E%3Cpath d='M5 25L13 9l4.5 9L20 14l7 11z' fill='%23e0a84f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS & BASE ============ */
+:root{
+  --bg:#05090e; --bg2:#04080c;
+  --panel:#0b141d; --panel2:#0e1922;
+  --line:rgba(233,230,220,.09);
+  --text:#e9e6dc; --muted:#8fa0a8; --faint:#5c6d76;
+  --amber:#e0a84f; --amber2:#f2ca85; --amber-dim:rgba(224,168,79,.13);
+  --teal:#7fb0a8; --clay:#cf7350;
+  --fd:'Cinzel','Times New Roman',serif;
+  --fq:'Cormorant Garamond',Georgia,serif;
+  --fb:'Manrope','Segoe UI',sans-serif;
+  --fm:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.68,.26,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);line-height:1.65;overflow-x:hidden}
+::selection{background:rgba(224,168,79,.35);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#05090e}
+::-webkit-scrollbar-thumb{background:#1c2a35;border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:#2a3d4c}
+a{color:inherit}
+img,svg{display:block}
+section,header{scroll-margin-top:74px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+
+/* film grain + vignette */
+.grain{position:fixed;inset:-60%;width:220%;height:220%;pointer-events:none;z-index:9999;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.4s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-2%,2%)}40%{transform:translate(2%,-1%)}60%{transform:translate(-1%,-2%)}80%{transform:translate(2%,2%)}100%{transform:translate(0,0)}}
+.vignette{position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background:radial-gradient(ellipse at center,transparent 52%,rgba(0,0,0,.42) 100%)}
+
+/* icons */
+.ic{display:inline-grid;place-items:center;width:22px;height:22px}
+.ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;font-family:var(--fb);font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:.3s;border:1px solid transparent;cursor:pointer}
+.btn.solid{background:linear-gradient(180deg,#eec277,#d9a247);color:#241a08;box-shadow:0 8px 30px rgba(224,168,79,.25)}
+.btn.solid:hover{transform:translateY(-2px);box-shadow:0 14px 42px rgba(224,168,79,.4)}
+.btn.ghost{border-color:rgba(233,230,220,.25);color:var(--text);background:transparent}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber2)}
+.btn.small{padding:9px 18px;font-size:.7rem}
+
+/* ============ NAV ============ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;gap:20px;padding:0 26px;height:62px;transition:.4s;border-bottom:1px solid transparent}
+#nav.scrolled{background:rgba(5,10,15,.82);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--fd);font-weight:700;letter-spacing:.3em;font-size:.95rem;color:var(--text)}
+.brand svg{width:20px;height:20px;fill:var(--amber)}
+.brand em{font-style:normal;font-family:var(--fm);font-size:.55rem;letter-spacing:.3em;color:var(--faint);margin-left:2px}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:26px}
+.nav-links>a{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:.25s;position:relative}
+.nav-links>a:hover{color:var(--text)}
+.nav-links>a.active{color:var(--amber)}
+.nav-dd{position:relative}
+.nav-dd-btn{display:flex;align-items:center;gap:6px;background:none;border:0;color:var(--muted);font:600 .78rem var(--fb);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;padding:6px 0}
+.nav-dd-btn:hover{color:var(--text)}
+.nav-dd-btn svg{transition:.3s}
+.nav-dd.open .nav-dd-btn svg{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 12px);right:0;background:rgba(10,18,26,.96);border:1px solid var(--line);border-radius:12px;padding:8px;min-width:200px;opacity:0;transform:translateY(-8px);pointer-events:none;transition:.25s;backdrop-filter:blur(14px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.nav-dd.open .nav-dd-menu{opacity:1;transform:none;pointer-events:auto}
+.nav-dd-menu a{display:block;padding:10px 13px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.85rem;transition:.2s}
+.nav-dd-menu a:hover{background:var(--amber-dim);color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px;margin-left:auto}
+.burger span{width:24px;height:2px;background:var(--text);transition:.3s}
+body.menu-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.m-menu{position:fixed;inset:62px 0 0 0;background:rgba(4,8,12,.96);backdrop-filter:blur(16px);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;opacity:0;pointer-events:none;transition:.35s}
+body.menu-open .m-menu{opacity:1;pointer-events:auto}
+.m-menu a{text-decoration:none;font-family:var(--fd);letter-spacing:.2em;font-size:1.15rem;color:var(--muted);padding:10px 20px;transition:.25s}
+.m-menu a:hover,.m-menu a.active{color:var(--amber)}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#04070d 0%,#071019 42%,#0b1a24 72%,#10222e 100%)}
+.hero-art{position:absolute;inset:0;z-index:1}
+.sky{position:absolute;inset:0}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--td,4s) ease-in-out var(--tdel,0s) infinite}
+.star.big{box-shadow:0 0 9px 1px rgba(255,255,255,.85)}
+@keyframes twinkle{0%,100%{opacity:.12}50%{opacity:.95}}
+.shoot{position:absolute;top:14%;left:66%;width:130px;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.95),transparent);transform:rotate(-33deg);opacity:0;animation:shoot 11s ease-in 4s infinite}
+@keyframes shoot{0%,90%{opacity:0;transform:rotate(-33deg) translateX(0)}92%{opacity:1}97%{transform:rotate(-33deg) translateX(-190px);opacity:0}100%{opacity:0}}
+.moon{position:absolute;top:11%;right:13%;width:88px;height:88px;border-radius:50%;
+  background:radial-gradient(circle at 38% 34%,#fdf6e4 0%,#e8dcc0 45%,#c9bd9f 100%);
+  box-shadow:0 0 60px 18px rgba(240,230,200,.28),0 0 160px 60px rgba(240,230,200,.12)}
+.mtn{position:absolute;bottom:0;left:0;width:100%;pointer-events:none;will-change:transform}
+.mtn.far{height:min(60vh,540px)}
+.mtn.mid{height:min(56vh,520px)}
+.mtn.near{height:min(40vh,380px)}
+.mtn text{font-family:var(--fm);letter-spacing:.22em}
+.peak-big{fill:#e9c37a;font-size:19px}
+.peak-sm{fill:#5f7280;font-size:15px}
+.tent-sm{fill:#e0a84f;opacity:.9}
+.mist{position:absolute;left:-12%;width:124%;pointer-events:none;filter:blur(14px)}
+.m1{height:210px;bottom:31%;animation:driftA 32s ease-in-out infinite alternate;background:linear-gradient(90deg,transparent,rgba(150,182,196,.1) 25%,rgba(172,202,212,.16) 50%,rgba(150,182,196,.1) 75%,transparent)}
+.m2{height:170px;bottom:20%;animation:driftA 42s ease-in-out infinite alternate-reverse;background:linear-gradient(90deg,transparent,rgba(160,190,200,.09) 30%,rgba(180,208,216,.14) 55%,rgba(160,190,200,.09) 78%,transparent)}
+.m3{height:150px;bottom:6%;animation:driftA 26s ease-in-out infinite alternate;background:linear-gradient(90deg,transparent,rgba(140,170,185,.12) 28%,rgba(165,195,205,.18) 52%,rgba(140,170,185,.12) 76%,transparent)}
+@keyframes driftA{from{transform:translateX(-3.5%)}to{transform:translateX(3.5%)}}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:20vh;background:linear-gradient(180deg,transparent,var(--bg));z-index:4;pointer-events:none}
+.hero-inner{position:relative;z-index:5;text-align:center;padding:130px 22px 240px;max-width:960px;will-change:transform,opacity}
+.rl{opacity:0;animation:fadeUp 1.1s var(--ease) forwards}
+.d1{animation-delay:1.1s}.d2{animation-delay:1.25s}.d3{animation-delay:1.5s}.d4{animation-delay:1.7s}.d5{animation-delay:1.9s}.d6{animation-delay:2.1s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.overline{font-family:var(--fm);font-size:.66rem;letter-spacing:.5em;color:#8fb6ae;text-transform:uppercase}
+.title{font-family:var(--fd);font-weight:700;font-size:clamp(2.7rem,10.5vw,8rem);letter-spacing:.12em;line-height:1.05;color:#f0ead9;margin-top:18px;text-shadow:0 0 70px rgba(224,168,79,.28)}
+.title span{display:inline-block;opacity:0;transform:translateY(.4em) rotate(2deg);filter:blur(8px);animation:letterIn 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(1.15s + var(--i)*.075s)}
+@keyframes letterIn{to{opacity:1;transform:none;filter:blur(0)}}
+.title-rule{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
+.title-rule i{font-family:var(--fm);font-style:normal;font-size:clamp(.55rem,1.6vw,.72rem);letter-spacing:.32em;color:var(--amber2);white-space:nowrap}
+.title-rule span{width:min(130px,16vw);height:1px;background:linear-gradient(90deg,transparent,rgba(224,168,79,.55))}
+.title-rule span:last-child{background:linear-gradient(90deg,rgba(224,168,79,.55),transparent)}
+.where{font-family:var(--fm);font-size:.62rem;letter-spacing:.34em;color:var(--faint);margin-top:12px;text-transform:uppercase}
+.tagline{font-family:var(--fq);font-style:italic;font-size:clamp(1.2rem,3vw,1.7rem);color:#cfc9b8;margin-top:22px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center;margin-top:28px;font-family:var(--fm);font-size:.62rem;letter-spacing:.22em;color:#93a3ac;text-transform:uppercase}
+.hero-meta span{display:flex;align-items:center;gap:10px}
+.hero-meta span::before{content:"";width:5px;height:5px;background:var(--amber);transform:rotate(45deg);opacity:.85}
+.hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.scroll-cue{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--fm);font-size:.56rem;letter-spacing:.42em;color:var(--faint)}
+.scroll-cue i{width:1px;height:44px;background:rgba(233,230,220,.15);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;top:-40%;left:0;width:100%;height:40%;background:var(--amber);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
+.lb{position:absolute;left:0;right:0;background:#000;z-index:6;display:flex;align-items:center;justify-content:space-between;padding:0 18px;animation:lbOpen 1.5s var(--ease) .35s both}
+.lb.top{top:0}.lb.bot{bottom:0;justify-content:center}
+@keyframes lbOpen{from{height:52vh}to{height:26px}}
+.lb span{font-family:var(--fm);font-size:8.5px;letter-spacing:.32em;color:rgba(233,230,220,.42);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;animation:fadeUp 1s ease 2.2s forwards}
+.rec{display:flex;align-items:center;gap:7px}
+.rec::before{content:"";width:6px;height:6px;border-radius:50%;background:#cf5a3c;animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+
+/* ============ SECTIONS ============ */
+.reel{padding:110px 22px 96px;position:relative}
+.wrap{max-width:1160px;margin:0 auto}
+.reel-head{margin-bottom:52px;max-width:840px}
+.reel-no{display:flex;align-items:center;gap:14px;font-family:var(--fm);font-size:.66rem;letter-spacing:.34em;color:var(--amber);margin-bottom:18px;text-transform:uppercase}
+.reel-no i{flex:0 0 42px;height:1px;background:linear-gradient(90deg,transparent,rgba(224,168,79,.6))}
+.reel-no i:last-child{background:linear-gradient(90deg,rgba(224,168,79,.6),transparent);flex:1;max-width:200px}
+.reel-head h2{font-family:var(--fd);font-weight:600;font-size:clamp(1.9rem,4.6vw,3.1rem);letter-spacing:.06em;line-height:1.15;color:#f0ead9}
+.slug{font-family:var(--fm);font-size:.7rem;letter-spacing:.22em;color:var(--faint);margin-top:12px;text-transform:uppercase}
+.reel-sub{font-family:var(--fq);font-style:italic;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--muted);margin-top:10px}
+.note-panel{border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:18px 22px;background:linear-gradient(90deg,rgba(224,168,79,.06),transparent 60%);margin-top:28px}
+.note-panel b{font-family:var(--fm);font-size:.64rem;letter-spacing:.3em;color:var(--amber);display:block;margin-bottom:8px}
+.note-panel p{font-size:.92rem;color:var(--muted)}
+
+/* at a glance */
+.g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.g-card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:22px;transition:.35s;position:relative;overflow:hidden}
+.g-card::after{content:"";position:absolute;inset:0;background:radial-gradient(320px 150px at 18% 0%,rgba(224,168,79,.08),transparent 70%);opacity:0;transition:.4s}
+.g-card:hover{transform:translateY(-4px);border-color:rgba(224,168,79,.32)}
+.g-card:hover::after{opacity:1}
+.g-ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--amber);background:var(--amber-dim);border:1px solid rgba(224,168,79,.22);margin-bottom:14px}
+.g-k{font-family:var(--fm);font-size:.58rem;letter-spacing:.3em;color:var(--faint);text-transform:uppercase}
+.g-t{font-size:1rem;font-weight:700;margin:7px 0 6px;color:#eef0e6}
+.g-d{font-size:.85rem;color:var(--muted)}
+
+/* route */
+.route-frame{border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#08121b,#060d14);padding:18px 10px;position:relative;overflow:hidden}
+.route-frame::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 80% 0%,rgba(127,176,168,.06),transparent 70%);pointer-events:none}
+.route-scroll{overflow-x:auto}
+.route{width:100%;min-width:840px;height:auto;display:block}
+.route text{font-family:var(--fm)}
+.route .grid line{stroke:rgba(233,230,220,.05)}
+.route #trailPath{filter:drop-shadow(0 0 6px rgba(224,168,79,.4))}
+.route .wdot{fill:#0b141d;stroke:var(--amber);stroke-width:2}
+.route .wdot.dim{stroke:#5c6d76;stroke-width:1.5}
+.route .wdot.peak{fill:var(--amber);stroke:#f2ca85;stroke-width:2}
+.route .ring{fill:none;stroke:var(--amber);opacity:0;transform-box:fill-box;transform-origin:center}
+.route .ring.pulse{animation:pulse 2.8s ease-out 3.2s infinite}
+@keyframes pulse{0%{transform:scale(.5);opacity:.9}70%{transform:scale(2.6);opacity:0}100%{transform:scale(2.6);opacity:0}}
+.route .flagpole{stroke:var(--amber);stroke-width:2}
+.route .flag{fill:var(--amber)}
+.route .wname{fill:#e9e6dc;font-size:12.5px;font-weight:500;letter-spacing:.08em}
+.route .wsub{fill:#7f929c;font-size:10px;letter-spacing:.12em}
+.route .wsub.dim{fill:#5c6d76}
+.route .peak-t{fill:var(--amber2);font-size:11px;letter-spacing:.12em}
+.route .warn-t{fill:var(--clay);font-size:10px;letter-spacing:.14em}
+.route .seg{fill:#647b85;font-size:9.5px;letter-spacing:.16em}
+.route .scale-note{fill:#48575f;font-size:9px;letter-spacing:.2em}
+.route .compass-ring{fill:none;stroke:rgba(233,230,220,.16)}
+.route .compass-n{fill:rgba(233,230,220,.32)}
+.route .wp,.route .segs,.route .deco,.route .scale-note{opacity:0;transition:opacity .8s ease}
+.route.on .wp{opacity:1;transition-delay:calc(.5s + var(--n)*.3s)}
+.route.on .segs{opacity:1;transition-delay:1.7s}
+.route.on .deco,.route.on .scale-note{opacity:1;transition-delay:2.1s}
+.stops{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:30px}
+.stop{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel);transition:.3s}
+.stop:hover{border-color:rgba(127,176,168,.35);transform:translateY(-3px)}
+.stop .n{font-family:var(--fm);font-size:.62rem;letter-spacing:.3em;color:var(--teal)}
+.stop h3{font-size:.98rem;margin:6px 0 3px}
+.stop .t{font-family:var(--fm);font-size:.68rem;letter-spacing:.12em;color:var(--amber);display:block;margin-bottom:7px}
+.stop p{font-size:.82rem;color:var(--muted)}
+
+/* interlude */
+.interlude{position:relative;padding:150px 22px;text-align:center;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.interlude .tc{font-family:var(--fm);font-size:.6rem;letter-spacing:.5em;color:var(--faint)}
+.interlude blockquote{font-family:var(--fq);font-style:italic;font-size:clamp(1.45rem,3.6vw,2.5rem);color:#d9d4c5;max-width:900px;margin:30px auto;line-height:1.5}
+.interlude blockquote b{color:var(--amber2);font-weight:500}
+.interlude .foot{font-family:var(--fd);letter-spacing:.55em;color:var(--amber);font-size:clamp(.95rem,2vw,1.35rem);margin-top:34px}
+#embers{position:absolute;inset:0;pointer-events:none}
+.ember{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle,#ffd9a0,#e08b3c 60%,transparent 72%);opacity:0;filter:blur(.4px);animation:rise var(--rd,8s) linear var(--rdel,0s) infinite}
+@keyframes rise{0%{transform:translate(0,0);opacity:0}8%{opacity:.85}55%{opacity:.4}100%{transform:translate(var(--rx,0),-52vh);opacity:0}}
+
+/* itinerary */
+.dd{position:relative;max-width:520px}
+.dd-btn{display:flex;align-items:center;gap:14px;width:100%;background:linear-gradient(180deg,#101c27,#0b141d);border:1px solid rgba(224,168,79,.3);border-radius:12px;padding:13px 16px;color:var(--text);cursor:pointer;font-family:var(--fb);font-size:.95rem;transition:.3s}
+.dd-btn:hover{border-color:rgba(224,168,79,.65);box-shadow:0 0 0 3px rgba(224,168,79,.07)}
+.dd.open .dd-btn{border-color:var(--amber)}
+.dd-label{display:flex;align-items:center;gap:12px;min-width:0;flex:1;text-align:left}
+.dd-text{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+.dd-text b{font-weight:700;font-size:.95rem}
+.dd-text i{font-style:normal;font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:2px}
+.av{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--fd);font-weight:700;font-size:.8rem;background:var(--amber-dim);color:var(--amber);border:1px solid rgba(224,168,79,.3)}
+.chev{flex:none;transition:transform .35s;color:var(--amber)}
+.dd.open .chev{transform:rotate(180deg)}
+.dd-list{position:absolute;top:calc(100% + 8px);left:0;right:0;background:rgba(11,20,29,.97);border:1px solid var(--line);border-radius:12px;backdrop-filter:blur(14px);padding:6px;opacity:0;transform:translateY(-8px) scale(.985);pointer-events:none;transition:.26s;z-index:60;max-height:352px;overflow:auto;box-shadow:0 26px 70px rgba(0,0,0,.55)}
+.dd.open .dd-list{opacity:1;transform:none;pointer-events:auto}
+.dd-opt{display:flex;align-items:center;gap:12px;width:100%;padding:10px 12px;border:0;background:none;color:var(--muted);font-family:var(--fb);font-size:.92rem;border-radius:9px;cursor:pointer;text-align:left;transition:.18s}
+.dd-opt:hover,.dd-opt:focus-visible{background:var(--amber-dim);color:var(--text);outline:none}
+.dd-opt.sel{color:var(--amber2);background:rgba(224,168,79,.08)}
+.dd-opt .av{width:30px;height:30px;font-size:.72rem}
+.dd-hint{font-family:var(--fm);font-size:.6rem;letter-spacing:.26em;color:var(--faint);text-transform:uppercase;margin-bottom:12px}
+.tl-wrap{position:relative;margin-top:46px;transition:opacity .22s}
+.tl-wrap.swap{opacity:0}
+.tl-line{position:absolute;left:109px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,rgba(224,168,79,.45) 5%,rgba(224,168,79,.45) 95%,transparent)}
+.tl-item{display:grid;grid-template-columns:90px 40px 1fr;align-items:start;padding:9px 0;opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.tl-item.in{opacity:1;transform:none}
+.tl-time{font-family:var(--fm);font-size:.76rem;color:var(--amber);text-align:right;letter-spacing:.02em;padding-top:5px;line-height:1.45}
+.tl-time em{display:block;font-style:normal;font-size:.58rem;color:var(--faint);letter-spacing:.12em}
+.tl-mid{display:flex;justify-content:center;padding-top:10px}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:#0b141d;border:2px solid var(--amber);box-shadow:0 0 12px rgba(224,168,79,.5)}
+.tl-card{background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,.012));border:1px solid var(--line);border-radius:12px;padding:13px 17px;transition:border-color .3s}
+.tl-card:hover{border-color:rgba(224,168,79,.35)}
+.tl-card h4{font-size:.98rem;font-weight:700;color:#eef0e6}
+.tl-card p{font-size:.85rem;color:var(--muted);margin-top:3px}
+.who{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.who span{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(127,176,168,.3);padding:2px 9px;border-radius:99px;background:rgba(127,176,168,.06)}
+.who span.all{color:var(--amber);border-color:rgba(224,168,79,.35);background:var(--amber-dim)}
+
+/* transport */
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.grp{border:1px solid var(--line);border-radius:14px;padding:22px;background:linear-gradient(180deg,var(--panel2),var(--panel));transition:.3s}
+.grp:hover{border-color:rgba(127,176,168,.35)}
+.grp .gk{font-family:var(--fm);font-size:.6rem;letter-spacing:.28em;color:var(--teal);text-transform:uppercase}
+.grp h3{font-family:var(--fd);font-size:1.15rem;letter-spacing:.08em;margin:8px 0 4px}
+.grp .names{font-size:.9rem;color:var(--amber2);margin:8px 0 8px;font-weight:600}
+.grp p{font-size:.84rem;color:var(--muted)}
+.legs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:44px}
+.leg{border:1px solid var(--line);border-radius:14px;padding:22px;background:linear-gradient(180deg,var(--panel2),var(--panel));position:relative;transition:.3s}
+.leg:hover{border-color:rgba(224,168,79,.35);transform:translateY(-3px)}
+.leg .ln{font-family:var(--fm);font-size:.6rem;letter-spacing:.3em;color:var(--faint)}
+.leg h3{font-size:1rem;margin:10px 0 8px;letter-spacing:.03em}
+.leg p{font-size:.84rem;color:var(--muted)}
+.leg .dur{font-family:var(--fm);font-size:.68rem;letter-spacing:.14em;color:var(--teal);margin-top:12px}
+.leg .fare{display:flex;align-items:baseline;gap:10px;margin-top:8px}
+.leg .fare b{font-family:var(--fm);font-size:1.35rem;color:var(--amber2)}
+.leg .fare i{font-style:normal;font-family:var(--fm);font-size:.56rem;letter-spacing:.2em;color:var(--faint);border:1px solid var(--line);padding:2px 8px;border-radius:99px}
+
+/* crew */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 8px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-family:var(--fb);font-size:.82rem;font-weight:600;cursor:pointer;transition:.25s}
+.chip .c-av{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-family:var(--fd);font-size:.68rem;background:rgba(233,230,220,.06);color:var(--faint);border:1px solid var(--line)}
+.chip:hover{border-color:rgba(224,168,79,.4);color:var(--text)}
+.chip.active{border-color:var(--amber);color:var(--amber2);background:var(--amber-dim)}
+.chip.active .c-av{background:var(--amber-dim);color:var(--amber);border-color:rgba(224,168,79,.35)}
+.dossier{display:grid;grid-template-columns:350px 1fr;gap:26px;margin-top:36px;min-height:430px;transition:opacity .24s,transform .24s}
+.dossier.swap{opacity:0;transform:translateY(12px)}
+.dos-left,.dos-right{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(180deg,var(--panel2),var(--panel));position:relative;overflow:hidden}
+.dos-left::before{content:"";position:absolute;inset:0;background:radial-gradient(360px 200px at 15% 0%,rgba(224,168,79,.09),transparent 70%);pointer-events:none}
+.dos-avatar{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-family:var(--fd);font-size:2.3rem;font-weight:700;color:var(--amber);background:radial-gradient(circle at 35% 30%,#1a2b3a,#0b141d);border:1px solid rgba(224,168,79,.4);box-shadow:0 0 40px rgba(224,168,79,.18),inset 0 0 24px rgba(224,168,79,.06)}
+.dos-name{margin-top:18px}
+.dos-name h3{font-family:var(--fd);font-size:1.75rem;letter-spacing:.08em;color:#f0ead9;line-height:1.15}
+.dos-full{font-family:var(--fm);font-size:.64rem;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;display:block;margin-top:5px}
+.dos-tag{display:inline-block;font-family:var(--fm);font-size:.58rem;letter-spacing:.24em;color:var(--amber);border:1px solid rgba(224,168,79,.35);border-radius:99px;padding:3px 12px;margin-top:11px;text-transform:uppercase}
+.dos-summary{font-size:.88rem;color:var(--muted);margin-top:16px}
+.dos-lbl{font-family:var(--fm);font-size:.58rem;letter-spacing:.28em;color:var(--faint);text-transform:uppercase;display:block;margin:20px 0 8px}
+.dos-pettah p{font-size:.84rem;color:var(--teal)}
+.dos-pay{border-top:1px dashed var(--line);margin-top:22px;padding-top:4px}
+.pay-line{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);padding:5px 0}
+.pay-line b{font-family:var(--fm);font-weight:500;color:var(--text)}
+.pay-line.credit b{color:var(--teal)}
+.pay-total{display:flex;justify-content:space-between;align-items:center;background:var(--amber-dim);border:1px solid rgba(224,168,79,.3);border-radius:10px;padding:10px 14px;margin-top:8px}
+.pay-total span{font-family:var(--fm);font-size:.58rem;letter-spacing:.22em;color:var(--amber)}
+.pay-total b{font-family:var(--fm);font-size:1.25rem;color:var(--amber2)}
+.pay-where{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;color:var(--faint);margin-top:10px;text-transform:uppercase}
+.dos-note{font-size:.8rem;color:var(--clay);margin-top:16px;font-style:italic;font-family:var(--fq);font-size:.95rem}
+.dos-block{margin-bottom:26px}
+.dos-block:last-child{margin-bottom:0}
+.dos-block h4{font-family:var(--fm);font-size:.62rem;letter-spacing:.3em;color:var(--amber);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.dos-block h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(224,168,79,.4),transparent)}
+.dos-list{list-style:none}
+.dos-list li{position:relative;padding:7px 0 7px 24px;font-size:.9rem;color:#cfd4c9;border-bottom:1px solid rgba(233,230,220,.05)}
+.dos-list li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;background:var(--amber);transform:rotate(45deg);opacity:.75}
+.dos-list li:last-child{border-bottom:0}
+
+/* budget */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.btable{width:100%;min-width:640px;border-collapse:collapse;background:var(--panel)}
+.btable th{font-family:var(--fm);font-size:.6rem;letter-spacing:.22em;color:var(--faint);text-transform:uppercase;text-align:left;padding:14px 18px;border-bottom:1px solid var(--line)}
+.btable td{padding:13px 18px;font-size:.88rem;color:var(--muted);border-bottom:1px solid rgba(233,230,220,.05);vertical-align:top}
+.btable td.mono{font-family:var(--fm);font-size:.78rem;color:#8fa0a8;white-space:nowrap}
+.btable td.num{font-family:var(--fm);color:var(--amber2);white-space:nowrap;font-weight:500}
+.btable tr:hover td{background:rgba(224,168,79,.03)}
+.btable tr.tot td{background:rgba(224,168,79,.06);color:var(--text);font-weight:700;border-top:1px solid rgba(224,168,79,.3)}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:34px 0 6px}
+.ledger>div{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.ledger b{display:block;font-family:var(--fm);font-size:1.4rem;color:var(--amber2);margin-top:7px;font-weight:500}
+.l-k{font-family:var(--fm);font-size:.56rem;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
+.ledger .spare{border-color:rgba(224,168,79,.45);background:linear-gradient(180deg,rgba(224,168,79,.12),var(--panel))}
+.pays{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin-top:16px}
+.pay-card{border:1px solid var(--line);border-radius:12px;padding:15px 16px;background:var(--panel);transition:.3s}
+.pay-card:hover{border-color:rgba(224,168,79,.35);transform:translateY(-3px)}
+.pay-card .pn{font-family:var(--fd);letter-spacing:.08em;font-size:.98rem;color:#f0ead9}
+.pay-card .pc{font-family:var(--fm);font-size:.54rem;letter-spacing:.14em;margin:8px 0;display:inline-block;padding:3px 9px;border-radius:99px;text-transform:uppercase}
+.pay-card .pc.cr{color:var(--teal);border:1px solid rgba(127,176,168,.35);background:rgba(127,176,168,.07)}
+.pay-card .pc.nc{color:var(--faint);border:1px solid var(--line)}
+.pay-card .pa{font-family:var(--fm);font-size:1.28rem;color:var(--amber2)}
+.pay-card .pe{font-size:.66rem;color:var(--faint);font-family:var(--fm);margin-top:5px;letter-spacing:.04em}
+.food{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.food span{font-family:var(--fm);font-size:.68rem;letter-spacing:.08em;color:#cfd4c9;border:1px dashed rgba(224,168,79,.35);border-radius:99px;padding:6px 14px;background:rgba(224,168,79,.04)}
+
+/* gear */
+.kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.kit-group{border:1px solid var(--line);border-radius:16px;padding:24px;background:linear-gradient(180deg,var(--panel2),var(--panel))}
+.kit-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.kit-head .ic{color:var(--amber)}
+.kit-head h3{font-size:1rem;letter-spacing:.04em}
+.kit-count{margin-left:auto;font-family:var(--fm);font-size:.68rem;color:var(--teal);letter-spacing:.1em}
+.kit-bar{height:3px;border-radius:99px;background:rgba(233,230,220,.07);margin:10px 0 14px;overflow:hidden}
+.kit-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));border-radius:99px;transition:width .5s var(--ease)}
+.check{display:flex;gap:12px;align-items:flex-start;padding:9px 12px;border-radius:10px;cursor:pointer;border:1px solid transparent;transition:.22s;-webkit-user-select:none;user-select:none}
+.check:hover{background:rgba(255,255,255,.03);border-color:var(--line)}
+.check input{position:absolute;opacity:0;pointer-events:none}
+.check .box{flex:none;width:18px;height:18px;border-radius:5px;border:1.5px solid rgba(224,168,79,.55);margin-top:3px;display:grid;place-items:center;transition:.2s;background:transparent}
+.check input:checked + .box{background:var(--amber);border-color:var(--amber)}
+.check input:checked + .box::after{content:"";width:5px;height:9px;border:solid #171006;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-2px)}
+.check .txt{font-size:.88rem;color:#cfd4c9;transition:.25s}
+.check input:checked ~ .txt{color:var(--faint);text-decoration:line-through;opacity:.65}
+.check input:focus-visible + .box{outline:2px solid var(--amber);outline-offset:2px}
+.kit-foot{display:flex;align-items:center;gap:18px;margin-top:26px;flex-wrap:wrap}
+.kit-foot .hint{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;color:var(--faint);text-transform:uppercase}
+.shared-table td{padding:13px 18px;font-size:.86rem;color:var(--muted);border-bottom:1px solid rgba(233,230,220,.05);vertical-align:top}
+.shared-table td:first-child{color:var(--text);font-weight:600;white-space:nowrap}
+.shared-table td.own{color:var(--teal);font-size:.8rem}
+
+/* bus board */
+.board{border:1px solid rgba(224,168,79,.24);border-radius:18px;background:linear-gradient(180deg,#0d1722,#0a121b);padding:30px;position:relative;overflow:hidden}
+.board::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 220px at 90% 0%,rgba(224,168,79,.06),transparent 70%);pointer-events:none}
+.board-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;position:relative}
+.board-head h3{font-family:var(--fd);letter-spacing:.1em;font-size:1.2rem}
+.board-head .sub{font-family:var(--fm);font-size:.6rem;letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+.saved{font-family:var(--fm);font-size:.6rem;letter-spacing:.22em;color:var(--teal);opacity:0;transition:.3s}
+.saved.show{opacity:1}
+#boardClear{margin-left:auto}
+.board-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;position:relative}
+.bf label{display:block;font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;color:var(--amber);margin-bottom:8px;text-transform:uppercase}
+.bf label b{color:var(--faint);font-weight:400;margin-right:8px}
+.bf input{width:100%;background:rgba(233,230,220,.035);border:1px solid var(--line);border-bottom:1px solid rgba(224,168,79,.45);border-radius:9px 9px 0 0;padding:11px 13px;color:var(--text);font-family:var(--fm);font-size:.86rem;outline:none;transition:.25s}
+.bf input:focus{border-color:rgba(224,168,79,.65);background:rgba(224,168,79,.05)}
+.bf input::placeholder{color:#46545c}
+.board .note-panel{margin:24px 0 0;position:relative}
+
+/* risks */
+.risks{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.r-card{border:1px solid var(--line);border-radius:14px;padding:22px;background:linear-gradient(180deg,var(--panel2),var(--panel));transition:.3s}
+.r-card:hover{border-color:rgba(207,115,80,.45);transform:translateY(-3px)}
+.r-card .ic{width:22px;height:22px;color:var(--clay)}
+.r-ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--clay);background:rgba(207,115,80,.09);border:1px solid rgba(207,115,80,.25);margin-bottom:14px}
+.r-card h3{font-size:.98rem;margin-bottom:6px}
+.r-card p{font-size:.85rem;color:var(--muted)}
+
+/* footer */
+footer{background:var(--bg2);border-top:1px solid var(--line);text-align:center;padding:130px 22px 60px;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;bottom:-160px;left:50%;transform:translateX(-50%);width:800px;height:320px;background:radial-gradient(ellipse,rgba(224,168,79,.1),transparent 70%);pointer-events:none}
+footer .tc{font-family:var(--fm);font-size:.6rem;letter-spacing:.5em;color:var(--faint)}
+footer h2{font-family:var(--fd);font-weight:600;font-size:clamp(2.2rem,6.5vw,4.2rem);letter-spacing:.08em;color:#f0ead9;margin-top:22px}
+footer h2 em{font-style:normal;color:var(--amber)}
+.cast{font-family:var(--fm);font-size:.68rem;letter-spacing:.3em;color:var(--muted);margin-top:26px;line-height:2.2}
+.cast b{color:var(--amber2);font-weight:500}
+.src{max-width:740px;margin:34px auto 0;font-size:.82rem;color:var(--faint)}
+.src .warn{font-family:var(--fm);font-size:.62rem;letter-spacing:.24em;color:var(--clay);margin-top:16px;text-transform:uppercase}
+.toplink{display:inline-flex;align-items:center;gap:10px;margin-top:40px;font-family:var(--fm);font-size:.62rem;letter-spacing:.3em;color:var(--muted);text-decoration:none;border:1px solid var(--line);border-radius:99px;padding:12px 24px;transition:.3s;text-transform:uppercase}
+.toplink:hover{border-color:var(--amber);color:var(--amber2)}
+.fin{margin-top:56px;font-family:var(--fm);font-size:.56rem;letter-spacing:.3em;color:#3d4a52;text-transform:uppercase}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:920px){
+  .nav-links{display:none}
+  .burger{display:flex}
+  .dossier{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .reel{padding:84px 16px 70px}
+  .tl-item{grid-template-columns:64px 26px 1fr}
+  .tl-line{left:75px}
+  .tl-time{font-size:.64rem}
+  .hero-meta{gap:8px 16px}
+  .lb span{font-size:7px;letter-spacing:.2em}
+  .lb.top span:first-child{display:none}
+  .dos-left,.dos-right,.board{padding:22px}
+  .brand{font-size:.82rem;letter-spacing:.22em}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <a class="brand" href="#top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 20L9 7l3.2 6.4L14 10l7.5 10H2.5z"/></svg>
+    DETHANGALA<em>OCT 2026</em>
+  </a>
+  <div class="nav-links">
+    <a href="#route">Route</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#crew">Crew</a>
+    <a href="#budget">Budget</a>
+    <a href="#gear">Gear</a>
+    <div class="nav-dd" id="navMore">
+      <button class="nav-dd-btn" type="button">More
+        <svg width="12" height="12" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nav-dd-menu">
+        <a href="#glance">At a Glance</a>
+        <a href="#transport">Transport</a>
+        <a href="#bus">Bus Board</a>
+        <a href="#risks">Risks &amp; Rules</a>
+      </div>
+    </div>
+  </div>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="m-menu" id="mMenu">
+    <a href="#glance">At a Glance</a>
+    <a href="#route">Route</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#transport">Transport</a>
+    <a href="#crew">Crew</a>
+    <a href="#budget">Budget</a>
+    <a href="#gear">Gear</a>
+    <a href="#bus">Bus Board</a>
+    <a href="#risks">Risks &amp; Rules</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-art" id="heroArt">
+    <div class="sky" id="sky"></div>
+    <div class="moon" id="moon"></div>
+    <i class="shoot"></i>
+    <svg class="mtn far" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path fill="#1b2c3a" opacity=".85" d="M0,480 L0,310 L70,268 L150,300 L235,238 L320,292 L400,242 L480,296 L560,220 L640,278 L720,232 L800,286 L880,226 L960,282 L1040,240 L1120,290 L1200,246 L1290,292 L1370,258 L1440,290 L1440,480 Z"/>
+    </svg>
+    <div class="mist m1"></div>
+    <svg class="mtn mid" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path fill="#0f1c28" d="M0,480 L0,352 L90,312 L170,342 L260,282 L340,326 L430,272 L520,330 L590,290 L648,186 L676,236 L716,196 L748,120 L788,186 L840,240 L900,262 L960,236 L1040,286 L1120,252 L1210,298 L1300,264 L1390,298 L1440,276 L1440,480 Z"/>
+      <g class="summit">
+        <line x1="748" y1="120" x2="748" y2="88" stroke="#e0a84f" stroke-width="2"/>
+        <path d="M748,88 l26,7 -26,7 z" fill="#e0a84f"/>
+        <text x="748" y="64" text-anchor="middle" class="peak-big">II · 1,858 M — THE SECOND PEAK</text>
+        <text x="626" y="162" text-anchor="middle" class="peak-sm">I · 1,837 M</text>
+        <path d="M757,158 l7,-10 7,10 z" class="tent-sm"/>
+      </g>
+    </svg>
+    <div class="mist m2"></div>
+    <svg class="mtn near" viewBox="0 0 1440 480" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <path fill="#060d14" d="M0,480 L0,398 L130,362 L270,392 L410,352 L560,398 L690,368 L830,404 L970,362 L1110,396 L1250,358 L1370,388 L1440,368 L1440,480 Z"/>
+    </svg>
+    <div class="mist m3"></div>
+  </div>
+  <div class="hero-fade"></div>
+
+  <div class="hero-inner" id="heroInner">
+    <p class="overline rl d1">Ext. Sri Lankan Highlands — Night</p>
+    <h1 class="title" id="heroTitle">DETHANGALA</h1>
+    <div class="title-rule rl d3"><span></span><i>TWIN PEAKS · 1,837 M &amp; 1,858 M</i><span></span></div>
+    <p class="where rl d3">Marathenna · Balangoda · Sri Lanka</p>
+    <p class="tagline rl d4">Eight boys. One night. The second peak.</p>
+    <div class="hero-meta rl d5">
+      <span>Fri 9 Oct · 11:45 PM · Pettah</span>
+      <span>Sun 11 Oct · Sunrise &amp; Home</span>
+      <span>No Guide · No Permits · Footprints Only</span>
+    </div>
+    <div class="hero-cta rl d6">
+      <a href="#crew" class="btn solid">Meet the Crew</a>
+      <a href="#schedule" class="btn ghost">The Full Plan</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>SCROLL</span><i></i></div>
+  <div class="lb top"><span>DETHANGALA · AN EXPEDITION DOCUMENT · OCT 2026</span><span class="rec">REC — PETTAH 23:45</span></div>
+  <div class="lb bot"><span>TIMES &amp; FARES ARE ESTIMATES — CONFIRM ON THE DAY</span></div>
+</header>
+
+<main>
+
+<!-- ============ REEL 01 · AT A GLANCE ============ -->
+<section class="reel" id="glance">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 01 · The Mission<i></i></div>
+      <h2>At a Glance</h2>
+      <p class="slug">EXT. PETTAH BUS STAND — 11:45 PM, FRIDAY 9 OCT</p>
+      <p class="reel-sub">Everything that matters, before the bus door closes.</p>
+    </div>
+    <div class="g-grid" id="glanceWrap"></div>
+  </div>
+</section>
+
+<!-- ============ REEL 02 · THE ROUTE ============ -->
+<section class="reel" id="route" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 02 · The Route<i></i></div>
+      <h2>Colombo to the Second Peak</h2>
+      <p class="slug">EXT. NIGHT BUS — MIDNIGHT TO DAWN</p>
+      <p class="reel-sub">One night bus, one local bus, one jungle trail — and 1,858 metres of Sri Lanka.</p>
+    </div>
+
+    <div class="route-frame reveal">
+      <div class="route-scroll">
+        <svg id="routeSVG" class="route" viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg" aria-label="Route and elevation profile from Pettah to the second peak of Dethangala">
+          <defs>
+            <linearGradient id="groundG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0d1b26" stop-opacity=".92"/>
+              <stop offset="1" stop-color="#060c12" stop-opacity=".96"/>
+            </linearGradient>
+            <linearGradient id="trailG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#7fb0a8"/>
+              <stop offset=".55" stop-color="#e0a84f"/>
+              <stop offset="1" stop-color="#f2ca85"/>
+            </linearGradient>
+          </defs>
+          <g class="grid">
+            <line x1="0" y1="120" x2="1000" y2="120"/>
+            <line x1="0" y1="220" x2="1000" y2="220"/>
+            <line x1="0" y1="320" x2="1000" y2="320"/>
+          </g>
+          <path d="M0,352 L55,348 C110,336 175,300 240,262 C300,252 360,246 425,236 C495,226 555,185 600,150 C640,132 680,128 720,122 C770,116 800,98 835,92 C865,88 900,72 930,55 L1000,50 L1000,430 L0,430 Z" fill="url(#groundG)"/>
+          <path id="trailPath" d="M55,348 C110,336 175,300 240,262 C300,252 360,246 425,236 C495,226 555,185 600,150 C640,132 680,128 720,122 C770,116 800,98 835,92 C865,88 900,72 930,55" fill="none" stroke="url(#trailG)" stroke-width="2.2" stroke-linecap="round"/>
+          <g class="wp" style="--n:0">
+            <circle class="wdot" cx="55" cy="348" r="5"/>
+            <text class="wname" x="30" y="330" text-anchor="start">PETTAH BUS STAND</text>
+            <text class="wsub" x="30" y="314" text-anchor="start">FRI · 11:45 PM</text>
+          </g>
+          <g class="wp" style="--n:1">
+            <circle class="wdot" cx="240" cy="262" r="5"/>
+            <text class="wname" x="240" y="238" text-anchor="middle">BALANGODA</text>
+            <text class="wsub" x="240" y="222" text-anchor="middle">~4:00 AM</text>
+          </g>
+          <g class="wp" style="--n:2">
+            <circle class="wdot" cx="425" cy="236" r="5"/>
+            <text class="wname" x="425" y="212" text-anchor="middle">DOLOMITE FACTORY</text>
+            <text class="wsub" x="425" y="196" text-anchor="middle">TRAILHEAD · ~7:30 AM</text>
+          </g>
+          <g class="wp" style="--n:3">
+            <circle class="wdot" cx="600" cy="150" r="5"/>
+            <text class="wname" x="600" y="126" text-anchor="middle">FIRST CAMP &amp; STREAM</text>
+            <text class="wsub" x="600" y="110" text-anchor="middle">REFILL 3 L EACH · ~10 AM</text>
+            <text class="warn-t" x="600" y="196" text-anchor="middle">↑ NO WATER ABOVE THIS POINT</text>
+          </g>
+          <g class="wp" style="--n:4">
+            <circle class="wdot" cx="720" cy="122" r="5"/>
+            <text class="wname" x="720" y="98" text-anchor="middle">PATH SPLIT</text>
+            <text class="wsub" x="720" y="82" text-anchor="middle">~11 AM · SECOND-PEAK PATH</text>
+          </g>
+          <g class="wp" style="--n:5">
+            <circle class="wdot dim" cx="835" cy="92" r="3.5"/>
+            <text class="wsub dim" x="833" y="62" text-anchor="middle">I · 1,837 M</text>
+          </g>
+          <g class="wp" style="--n:6">
+            <circle class="ring pulse" cx="930" cy="55" r="7"/>
+            <circle class="wdot peak" cx="930" cy="55" r="5.5"/>
+            <line class="flagpole" x1="930" y1="55" x2="930" y2="26"/>
+            <path class="flag" d="M930,26 l17,5.5 -17,5.5 z"/>
+            <text class="wsub peak-t" x="912" y="28" text-anchor="end">1,858 M · CAMP</text>
+            <text class="wname" x="912" y="47" text-anchor="end">THE SECOND PEAK</text>
+          </g>
+          <g class="segs">
+            <text class="seg" x="147" y="344" text-anchor="middle">NIGHT BUS · 3.5–4.5 H · RS 1,000</text>
+            <text class="seg" x="332" y="284" text-anchor="middle">LOCAL BUS · 1–1.5 H · RS 200</text>
+            <text class="seg" x="512" y="224" text-anchor="middle">JUNGLE TRAIL · ~2 H</text>
+            <text class="seg" x="663" y="152" text-anchor="middle">TRAIL · ~1 H</text>
+            <text class="seg" x="882" y="114" text-anchor="middle">TRAIL · ~1.5 H</text>
+          </g>
+          <g class="deco">
+            <circle class="compass-ring" cx="60" cy="66" r="16"/>
+            <path class="compass-n" d="M60 54 L64 74 L60 69.5 L56 74 Z"/>
+            <text class="seg" x="60" y="98" text-anchor="middle">N</text>
+          </g>
+          <text class="scale-note" x="992" y="418" text-anchor="end">EST. PROFILE — NOT TO SCALE</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="stops" id="stopsWrap"></div>
+  </div>
+</section>
+
+<!-- ============ TITLE CARD · GOLDEN RULE ============ -->
+<section class="interlude">
+  <div id="embers" aria-hidden="true"></div>
+  <p class="tc">TITLE CARD</p>
+  <blockquote>
+    “Nobody walks alone. Nobody leaves the group without telling Manage.<br/>
+    Nothing is left behind on the mountain — <b>footprints only</b>.”
+  </blockquote>
+  <p class="foot">FOOTPRINTS ONLY</p>
+</section>
+
+<!-- ============ REEL 03 · SCHEDULE ============ -->
+<section class="reel" id="schedule">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 03 · The Schedule<i></i></div>
+      <h2>Two Days on the Mountain</h2>
+      <p class="slug">EXT. JUNGLE TRAIL — DAWN TO NIGHT</p>
+      <p class="reel-sub">Hour by hour, from the midnight bus to the Sunday sunrise.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="dd-hint">Select a day</p>
+      <div class="dd" id="dayDD">
+        <button class="dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="dd-label"></span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dd-list" role="listbox"></div>
+      </div>
+    </div>
+
+    <div class="tl-wrap" id="tlWrap"><div class="tl-line"></div></div>
+
+    <div class="note-panel reveal">
+      <b>TIME CHECK</b>
+      <p>Jungle trail with climbing sections, loaded packs and no guide. If the group is slower than the timings above, drop the photo booth and exploring — not the tent time. Reach camp with an hour of daylight left.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL 04 · TRANSPORT ============ -->
+<section class="reel" id="transport" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 04 · The Fleet<i></i></div>
+      <h2>Getting There</h2>
+      <p class="slug">EXT. COLOMBO STREETS — LATE NIGHT</p>
+      <p class="reel-sub">Three groups, one deadline: 11:45 PM at Pettah.</p>
+    </div>
+
+    <div class="groups">
+      <div class="grp reveal" data-d="0">
+        <span class="gk">Route 138 Crew</span>
+        <h3>The Bus Brothers</h3>
+        <p class="names">Yapa · Manage · Theekshana · Dilum</p>
+        <p>Route 138 to Pettah. Leave early — the last buses are slow.</p>
+      </div>
+      <div class="grp reveal" data-d="90">
+        <span class="gk">PickMe Crew</span>
+        <h3>The Booked Three</h3>
+        <p class="names">Damsath · Senura · Kavishan</p>
+        <p>PickMe to Pettah. Book with a time buffer.</p>
+      </div>
+      <div class="grp reveal" data-d="180">
+        <span class="gk">Solo Rider</span>
+        <h3>Mevidu</h3>
+        <p class="names">On his own, on time.</p>
+        <p>If late — Manage is ready with his tools.</p>
+      </div>
+    </div>
+
+    <div class="note-panel reveal">
+      <b>DO NOT BE LATE</b>
+      <p>Night buses to Balangoda are limited. If the group misses the first one, the wait can be hours and the whole schedule moves. If one person is stuck in traffic, call Manage immediately.</p>
+    </div>
+
+    <div class="legs">
+      <div class="leg reveal" data-d="0">
+        <span class="ln">LEG 01 · OUT</span>
+        <h3>Pettah → Balangoda</h3>
+        <p>Colombo–Badulla route bus via Ratnapura, normal if available. Departure time confirmed at Bastian Mawatha.</p>
+        <div class="dur">~3.5 – 4.5 HRS</div>
+        <div class="fare"><b>Rs 1,000</b><i>BUDGETED</i></div>
+      </div>
+      <div class="leg reveal" data-d="90">
+        <span class="ln">LEG 02 · OUT</span>
+        <h3>Balangoda → Marathenna</h3>
+        <p>Local bus towards Marathenna. Tell the conductor “Dethangala” and get off at the dolomite factory, where the hike starts.</p>
+        <div class="dur">~1 – 1.5 HRS</div>
+        <div class="fare"><b>Rs 200</b><i>ESTIMATE</i></div>
+      </div>
+      <div class="leg reveal" data-d="180">
+        <span class="ln">LEG 03 · RETURN</span>
+        <h3>Marathenna → Balangoda</h3>
+        <p>Local bus. Time to be confirmed — Damsath gets it in writing on Day 1 morning.</p>
+        <div class="dur">TIME TBC</div>
+        <div class="fare"><b>Rs 200</b><i>ESTIMATE</i></div>
+      </div>
+      <div class="leg reveal" data-d="270">
+        <span class="ln">LEG 04 · RETURN</span>
+        <h3>Balangoda → Pettah</h3>
+        <p>Colombo-bound bus. Time to be confirmed — Sunday departures on the Bus Board.</p>
+        <div class="dur">TIME TBC</div>
+        <div class="fare"><b>Rs 1,000</b><i>BUDGETED</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL 05 · CREW ============ -->
+<section class="reel" id="crew">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 05 · The Cast<i></i></div>
+      <h2>The Crew of Eight</h2>
+      <p class="slug">CAST LIST — IN ORDER OF APPEARANCE</p>
+      <p class="reel-sub">Pick a name from the dropdown. Every role, every item, every rupee.</p>
+    </div>
+
+    <div class="reveal">
+      <p class="dd-hint">Select a crew member</p>
+      <div class="dd" id="crewDD">
+        <button class="dd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="dd-label"></span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="dd-list" role="listbox"></div>
+      </div>
+      <div class="chips" id="crewChips"></div>
+    </div>
+
+    <div class="dossier" id="dossier" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ============ REEL 06 · BUDGET ============ -->
+<section class="reel" id="budget" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 06 · The Budget<i></i></div>
+      <h2>The Production Budget</h2>
+      <p class="slug">INT. MANAGE'S LEDGER — NIGHT</p>
+      <p class="reel-sub">Eight shares, one pool, two estimates — and a Rs 200 spare.</p>
+    </div>
+
+    <div class="table-scroll reveal">
+      <table class="btable">
+        <thead><tr><th>Item</th><th>Calculation</th><th>Total</th><th>Handled by</th></tr></thead>
+        <tbody>
+          <tr><td>Pettah ↔ Balangoda (return)</td><td class="mono">1,000 × 2 × 8</td><td class="num">Rs 16,000</td><td>Mevidu</td></tr>
+          <tr><td>Balangoda ↔ Marathenna (return)</td><td class="mono">200 × 2 × 8</td><td class="num">Rs 3,200</td><td>Mevidu</td></tr>
+          <tr><td>Shop food — noodles, parata, dhal, soya meat, fish, bread, water</td><td class="mono">fixed estimate</td><td class="num">Rs 8,000</td><td>Kavishan</td></tr>
+          <tr><td>Road meals — breakfast + return lunch</td><td class="mono">350 × 2 × 8</td><td class="num">Rs 5,600</td><td>Each person / Dilum</td></tr>
+          <tr><td>Emergency buffer</td><td class="mono">500 × 8</td><td class="num">Rs 4,000</td><td>Manage</td></tr>
+          <tr class="tot"><td>Total pool — shared by all 8</td><td class="mono">36,800 ÷ 8 = 4,600</td><td class="num">Rs 36,800</td><td>Manage (overall)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="ledger reveal">
+      <div><span class="l-k">Total Pool</span><b>Rs <span class="cnt" data-n="36800">0</span></b></div>
+      <div><span class="l-k">Collected (rounded)</span><b>Rs <span class="cnt" data-n="29000">0</span></b></div>
+      <div><span class="l-k">Held — Yapa &amp; Manage</span><b>Rs <span class="cnt" data-n="8000">0</span></b></div>
+      <div><span class="l-k">In Hand</span><b>Rs <span class="cnt" data-n="37000">0</span></b></div>
+      <div class="spare"><span class="l-k">Spare</span><b>Rs <span class="cnt" data-n="200">0</span></b></div>
+    </div>
+
+    <div class="note-panel reveal">
+      <b>CASH CHECK</b>
+      <p>Rs 29,000 collected + Rs 8,000 already held by Yapa &amp; Manage = Rs 37,000, against Rs 36,800 of costs — Rs 200 spare. The two bus fares are estimates, so keep the buffer untouched until the real fares are known. The Rs 8,000 surplus from the last hike belongs only to Manage, Kavishan, Dilum, Yapa, Theekshana and Mevidu — credited Rs 1,333 each. Senura and Damsath share nothing from it.</p>
+    </div>
+
+    <div class="reveal" style="margin-top:44px">
+      <div class="dos-block"><h4>Who Pays What — paid to Manage at Pettah</h4></div>
+      <div class="pays" id="whoWrap"></div>
+    </div>
+
+    <div class="reveal" style="margin-top:44px">
+      <div class="dos-block"><h4>Shop Food List — Kavishan buys before the trip</h4></div>
+      <div class="food">
+        <span>Kottu mee noodles ×10 packets</span>
+        <span>Parata ×20 (ready-made)</span>
+        <span>Parippu 1 kg</span>
+        <span>Soya meat ×2 packets</span>
+        <span>Canned fish ×1 tin</span>
+        <span>Sandwich bread ×2</span>
+        <span>5 L water bottle</span>
+      </div>
+      <p style="font-size:.82rem;color:var(--faint);margin-top:14px">Items assigned to individuals — spices, sugar, tea, limes, tomatoes, firewood, kerosene, gas, utensils — are brought by each person and are not in the pool.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL 07 · GEAR ============ -->
+<section class="reel" id="gear">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 07 · The Kit<i></i></div>
+      <h2>Gear &amp; Checklists</h2>
+      <p class="slug">EXT. PACKING FLOOR — THE NIGHT BEFORE</p>
+      <p class="reel-sub">A misty, windy peak near 1,850 m — and October brings afternoon storms. Layers and rain gear matter more than anything else. Everyone carries 3 L of water from the stream to the peak.</p>
+    </div>
+
+    <div class="kit-grid" id="kitWrap"></div>
+
+    <div class="kit-foot reveal">
+      <button class="btn ghost small" id="kitReset" type="button">Reset Checklists</button>
+      <span class="hint">Your ticks are saved in this browser</span>
+    </div>
+
+    <div class="reveal" style="margin-top:56px">
+      <div class="dos-block"><h4>Shared items nobody is assigned yet — decide before departure</h4></div>
+      <div class="table-scroll">
+        <table class="btable shared-table">
+          <thead><tr><th>Item</th><th>Why</th><th>Suggested owner</th></tr></thead>
+          <tbody>
+            <tr><td>Extra tent(s)</td><td>Only one tent is assigned — one tent will not sleep 8 people.</td><td class="own">Manage to decide who borrows or hires</td></tr>
+            <tr><td>Water containers</td><td>No water on the peak. 8 people need about 24 L for dinner, tea and morning.</td><td class="own">Kavishan, Yapa — collapsible containers or extra bottles</td></tr>
+            <tr><td>Offline map / GPX track</td><td>No guide, jungle trail, poor signal.</td><td class="own">Yapa, Mevidu — download before leaving</td></tr>
+            <tr><td>Plates / bowls / spoons</td><td>Only one cup and the ladles are assigned.</td><td class="own">Everyone brings their own</td></tr>
+            <tr><td>Cooking oil</td><td>Needed for noodles, parata and curry.</td><td class="own">Kavishan — with the shop food</td></tr>
+            <tr><td>Matches / lighter, fire starters</td><td>Wind and damp make the fire hard to light.</td><td class="own">Yapa + Senura</td></tr>
+            <tr><td>First aid kit</td><td>Remote location, no quick help.</td><td class="own">Manage</td></tr>
+            <tr><td>Tarpaulin / ground sheet</td><td>Condensation and damp ground.</td><td class="own">Kavishan to check in Balangoda</td></tr>
+            <tr><td>Rubbish bags</td><td>Leave no trace.</td><td class="own">Everyone carries their own; Manage has spares</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL 08 · BUS BOARD ============ -->
+<section class="reel" id="bus" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 08 · The Board<i></i></div>
+      <h2>Damsath's Bus Board</h2>
+      <p class="slug">INT. BALANGODA BUS STAND — 5:00 AM</p>
+      <p class="reel-sub">Six questions. Fill it in on Day 1 morning — in writing.</p>
+    </div>
+
+    <div class="board reveal">
+      <div class="board-head">
+        <div>
+          <h3>THE BOARD</h3>
+          <span class="sub">Type below — it saves automatically</span>
+        </div>
+        <span class="saved" id="boardSaved">SAVED ✓</span>
+        <button class="btn ghost small" id="boardClear" type="button">Clear Board</button>
+      </div>
+      <div class="board-grid">
+        <div class="bf"><label><b>01</b>Pettah → Balangoda — departure time &amp; fare</label><input class="b-in" data-b="1" type="text" placeholder="e.g. 00:15 from Bastian Mawatha · Rs 260"></div>
+        <div class="bf"><label><b>02</b>Balangoda → Marathenna — first bus on Saturday</label><input class="b-in" data-b="2" type="text" placeholder="e.g. 6:10 AM"></div>
+        <div class="bf"><label><b>03</b>Marathenna → Balangoda — last bus on Sunday</label><input class="b-in" data-b="3" type="text" placeholder="e.g. 4:30 PM — write this on Day 1"></div>
+        <div class="bf"><label><b>04</b>Balangoda → Colombo — Sunday departures</label><input class="b-in" data-b="4" type="text" placeholder="e.g. 1:15 · 2:40 · 4:00"></div>
+        <div class="bf"><label><b>05</b>Conductor name / bus number</label><input class="b-in" data-b="5" type="text" placeholder="e.g. Ajith · NB 7712"></div>
+        <div class="bf"><label><b>06</b>Does the bus stop at the dolomite factory?</label><input class="b-in" data-b="6" type="text" placeholder="YES / NO — asked at boarding &amp; 15 min before"></div>
+      </div>
+      <div class="note-panel">
+        <b>THE RULE OF THE BOARD</b>
+        <p>Without confirmed return buses, do not start the hike down. Write the last Marathenna bus time here on Day 1 morning. If the last bus is early, move the Day 2 schedule earlier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REEL 09 · RISKS ============ -->
+<section class="reel" id="risks">
+  <div class="wrap">
+    <div class="reel-head reveal">
+      <div class="reel-no"><i></i>Reel 09 · The Storm Plan<i></i></div>
+      <h2>Risks &amp; Rules</h2>
+      <p class="slug">EXT. THE MOUNTAIN — WHATEVER THE WEATHER</p>
+      <p class="reel-sub">No guide means the group stays tight and turns back on time.</p>
+    </div>
+    <div class="risks" id="risksWrap"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ EPILOGUE ============ -->
+<footer id="epilogue">
+  <p class="tc">EPILOGUE</p>
+  <h2>Footprints <em>only.</em></h2>
+  <p class="cast">
+    CAST — <b>MANAGE</b> · <b>YAPA</b> · <b>THEEKSHANA</b> · <b>DILUM</b> · <b>DAMSATH</b> · <b>SENURA</b> · <b>KAVISHAN</b> · <b>MEVIDU</b>
+  </p>
+  <div class="src">
+    <p>Route and trail details — about 2 hrs to the first camp, about 1 more hr to the path split, water at the first camp only — come from older hiking blogs and the team's own vlog. Those sources also advise a guide, because the trail is hard to follow. Bus times, fares and the dolomite factory stop are unverified.</p>
+    <p class="warn">Times and fares are estimates — confirm everything on the day.</p>
+  </div>
+  <a href="#top" class="toplink">↑ Back to the Top</a>
+  <div class="fin">FIN · DETHANGALA PEAK TRIP · MARATHENNA, BALANGODA · FRI 9 — SUN 11 OCT 2026</div>
+</footer>
+
+<script>
+/* ================= DATA ================= */
+const ICONS={
+  pin:'<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+  bus:'<svg viewBox="0 0 24 24"><rect x="4" y="4.5" width="16" height="12" rx="2"/><path d="M4 9.5h16M9 4.5v5M15 4.5v5"/><circle cx="8.2" cy="19.5" r="1.6"/><circle cx="15.8" cy="19.5" r="1.6"/></svg>',
+  flag:'<svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4.5h11l-2.6 3.5L17 11.5H6"/></svg>',
+  tent:'<svg viewBox="0 0 24 24"><path d="M3 20L12 4l9 16H3z"/><path d="M12 12.5L8.4 20M12 12.5l3.6 7.5"/></svg>',
+  coins:'<svg viewBox="0 0 24 24"><circle cx="9.5" cy="9.5" r="5.7"/><path d="M14.8 7.6a5.7 5.7 0 1 1-7.2 7.2"/></svg>',
+  check:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M8.4 12.3l2.5 2.5 4.7-5.2"/></svg>',
+  people:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.3"/><path d="M3.4 19c.6-3.3 2.9-5.2 5.6-5.2s5 1.9 5.6 5.2"/><circle cx="16.8" cy="9.6" r="2.7"/><path d="M16.2 14.6c2.3.3 4 2 4.5 4.6"/></svg>',
+  clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.4V12l3.1 2.1"/></svg>',
+  compass:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M15.6 8.4l-1.9 5.3-5.3 1.9 1.9-5.3 5.3-1.9z"/></svg>',
+  drop:'<svg viewBox="0 0 24 24"><path d="M12 3.5S6.2 9.8 6.2 14a5.8 5.8 0 0 0 11.6 0c0-4.2-5.8-10.5-5.8-10.5z"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24"><path d="M13 2.5L5.5 13.5H10l-1 8 7.5-11H12l1-8z"/></svg>',
+  snow:'<svg viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/></svg>',
+  flame:'<svg viewBox="0 0 24 24"><path d="M12 3c2 3.4-2.6 5-2.6 8.4a2.9 2.9 0 0 0 5.7.8C17.4 8.6 13.6 6.4 12 3z"/><path d="M10.3 21c-2.1 0-3.7-1.6-3.7-3.5 0-2.3 1.8-3.4 2.7-5.2"/></svg>',
+  trash:'<svg viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V4.5h5V7M7 7l1 13.5h8L17 7"/><path d="M10.5 10.5v6.5M13.5 10.5v6.5"/></svg>',
+  leech:'<svg viewBox="0 0 24 24"><path d="M4 17.5c2.5-6.5 5 2 8-2.5s3.5-6 8-3.5"/><circle cx="4.6" cy="18" r="1.3"/></svg>',
+  pack:'<svg viewBox="0 0 24 24"><path d="M8 7.2V5.6a4 4 0 0 1 8 0v1.6"/><path d="M4.8 7h14.4l-1.1 13.5H5.9L4.8 7z"/><path d="M9.5 11h5"/></svg>'
+};
+
+const GLANCE=[
+  {icon:'pin',k:'Meet',t:'Fri 9 Oct · 11:45 PM sharp',d:'Pettah Bus Stand, Colombo Central. All 8 — including Dilum. Nobody late.'},
+  {icon:'bus',k:'Bus out',t:'First bus after midnight',d:'Colombo → Balangoda on the Colombo–Badulla route. Exact time confirmed at the stand.'},
+  {icon:'flag',k:'Then',t:'Balangoda → Marathenna',d:'Tell the conductor "Dethangala" — get off at the dolomite factory stop, where the hike starts.'},
+  {icon:'compass',k:'Hike',t:'Jungle trail · 3+ hrs',d:'~2 hrs to the first camp with a stream, ~1 more hr to the path split. Take the path to the second peak.'},
+  {icon:'tent',k:'Camp',t:'Saturday night near the peak',d:'Sunrise on Sunday 11 Oct, then hike down and head home.'},
+  {icon:'coins',k:'Money',t:'Rs 3,300 or Rs 4,600 each',d:'Paid to Manage at Pettah. Full budget in Reel 06.'},
+  {icon:'check',k:'Confirmed',t:'No permits · No guide',d:'Team confirmed no permits needed. Water on the way — none on the peak.'},
+  {icon:'people',k:'Team',t:'8 in the credits',d:'Manage · Yapa · Theekshana · Dilum · Damsath · Senura · Kavishan · Mevidu'}
+];
+
+const STOPS=[
+  {n:'01',t:'Pettah Bus Stand',time:'FRI · 11:45 PM',d:'All 8, including Dilum. Everyone pays Manage here. First Colombo–Badulla bus after midnight.'},
+  {n:'02',t:'Balangoda',time:'~4:00 AM',d:'Toilets, breakfast, rest. Gear check (Kavishan), lunch packets (Dilum), bus times in writing (Damsath).'},
+  {n:'03',t:'Dolomite Factory',time:'~7:30 AM',d:'Tell the conductor "Dethangala" and get off here. Final gear and water check — fill every bottle.'},
+  {n:'04',t:'First Camp & Stream',time:'~10:00 AM',d:'Refill ALL water — 3 L per person for the peak. No water above this point.'},
+  {n:'05',t:'Path Split',time:'~11:00 AM',d:'About 1 hr past the stream. Take the path to the second peak. Hard deadline: 12:30 PM.'},
+  {n:'06',t:'The Second Peak',time:'1:30 PM target',d:'1,858 m. Pitch tents, photo booth at 3:00, explore at 4:00, dinner and sunset at 6:00.'},
+  {n:'07',t:'Sunrise & Down',time:'SUN · 6:15 AM',d:'Sunrise from the summit, breakfast, pack up, clear all rubbish — 3–4 hrs back down and buses home.'}
+];
+
+const CREW=[
+  {key:'manage',name:'Manage',full:'Nisaja',tag:'The Boss',initial:'M',
+   summary:'Overall budget and final calls. Collects every share at Pettah, holds the emergency buffer and the Rs 8,000 hike surplus with Yapa. First to the top to pick the tent spot; handles any foreigners with Theekshana.',
+   bring:['Limes ×5'],
+   duties:['Overall budget — collect each person\'s share at Pettah','Reach the top first, pitch tents in the best spot','Decide the turn-around call at the path split — 12:30 PM deadline','Handle any foreigners, with Theekshana','Hold the emergency buffer (Rs 4,000) and the Rs 8,000 hike surplus with Yapa'],
+   pettah:'Route 138 with the group — leave early, the last buses are slow',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300},
+   note:'Collects everyone else\'s share. Nobody boards the bus without paying.'},
+  {key:'yapa',name:'Yapa',full:'Vinul Yapa',tag:'The Navigator',initial:'Y',
+   summary:'Water plan and navigation with Mevidu — the refill point at the first camp and the correct path at the split. Chooses the lunch spot on the trail. Holds the Rs 8,000 hike surplus with Manage.',
+   bring:['Stove (lip) + gas','Sugar 500 g','3 L water capacity for the peak'],
+   duties:['Water plan and navigation with Mevidu — stream refill at the first camp, correct path at the split','Choose the lunch spot on the trail','Check that the gas can travel on the bus — if refused, buy in Balangoda','Offline map / GPX track downloaded before leaving'],
+   pettah:'Route 138 — leave early, the last buses are slow',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
+  {key:'theekshana',name:'Theekshana',full:'Theekshana',tag:'The Diplomat',initial:'T',
+   summary:'Assists Manage with any foreigners the team meets on the trail. Brings the ladles, the ice cream box and the tea leaves.',
+   bring:['Ladles ×3','Ice cream box ×1','Tea leaves 250 g'],
+   duties:['Assist Manage with any foreigners on the mountain'],
+   pettah:'Route 138 with Yapa\'s group — leave early, the last buses are slow',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
+  {key:'dilum',name:'Dilum',full:'Dilum Theekshana',tag:'The Chef',initial:'D',
+   summary:'Lunch packets in Balangoda at 4:30 AM and morning tea with Kavishan on the summit. Travels to Pettah with Yapa\'s group on route 138.',
+   bring:['Knife ×1','Mannaya (griddle)'],
+   duties:['Come to Pettah with Yapa\'s group (route 138)','Buy lunch packets in Balangoda (~4:30 AM)','Morning tea with Kavishan (6:00 AM, Day 2)'],
+   pettah:'Route 138 with Yapa\'s group — leave early, the last buses are slow',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
+  {key:'damsath',name:'Damsath',full:'Damsath Chiranjeewa',tag:'The Timetable',initial:'D',
+   summary:'The bus brain of the trip. Tells every conductor the stops, gets all bus times in writing — and the whole return timing depends on him.',
+   bring:['Small pots ×2'],
+   duties:['Tell the conductors the stops — Balangoda, Marathenna, the dolomite factory','Get written bus times — first Balangoda → Marathenna bus and all returns (fill the Bus Board)','Return timing depends on him'],
+   pettah:'PickMe to Pettah — book with a time buffer',
+   pay:{base:4600,credit:0,exact:4600,rounded:4600}},
+  {key:'senura',name:'Senura',full:'Senura',tag:'The Campmaster',initial:'S',
+   summary:'Tent and spices — the shelter and the flavour of the trip. Not on the foreigners task.',
+   bring:['Tent — confirm size, that it sleeps the group, or how many are needed','Spices — chilli, turmeric, thuna paha (curry powder), pepper, onions, garlic, salt, ginger','3 L water capacity for the peak'],
+   duties:['Pitch the tent with Manage\'s team'],
+   pettah:'PickMe to Pettah — book with a time buffer',
+   pay:{base:4600,credit:0,exact:4600,rounded:4600}},
+  {key:'kavishan',name:'Kavishan',full:'Kavishan',tag:'The Provisioner',initial:'K',
+   summary:'Buys all the shop food (Rs 8,000) before the trip, checks every piece of camping gear in Balangoda at ~4 AM and buys whatever is missing. Morning tea with Dilum.',
+   bring:['Saucepan ×1','Tomatoes ×3','Firewood bundles ×5 — reconsider: heavy and likely wet on a jungle trail'],
+   duties:['Buy all shop food (Rs 8,000) before the trip','Check ALL camping gear in Balangoda (~4 AM); buy anything missing','Morning tea with Dilum (6:00 AM, Day 2)','Tarpaulin / ground sheet — check in Balangoda'],
+   pettah:'PickMe to Pettah — book with a time buffer',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
+  {key:'mevidu',name:'Mevidu',full:'Mevidu',tag:'The Pathfinder',initial:'M',
+   summary:'Transport budget and bus fares, the 5:45 AM wake-up call on the summit, and the water plan and navigation with Yapa.',
+   bring:['Large pot ×1','Cup ×1 with teaspoon','Kerosene'],
+   duties:['Hold the transport money (bus fares)','Wake everyone at 5:45 AM on Day 2','Water plan and navigation with Yapa','Kerosene on a bus may be refused — ask first, or buy in Balangoda'],
+   pettah:'On his own, on time. If late — Manage is ready with his tools.',
+   pay:{base:4600,credit:1333,exact:3267,rounded:3300}}
+];
+
+const DAYS={
+  d1:{label:'Day 1 · Saturday 10 Oct',sub:'Midnight bus → campfire',items:[
+    {t:'11:45 PM',d:'FRI',who:['All'],title:'Everyone at Pettah Bus Stand',desc:'Colombo Central. All 8, including Dilum. Each person pays Manage here.'},
+    {t:'~12:00–12:30 AM',who:['All'],title:'Board the Balangoda bus',desc:'Colombo–Badulla route bus via Ratnapura. Exact departure time confirmed at Bastian Mawatha.'},
+    {t:'~4:00 AM',who:['Damsath'],title:'Arrive Balangoda',desc:'Toilets, breakfast, rest. Sleepers get woken up.'},
+    {t:'~4:00 AM',who:['Kavishan'],title:'Check ALL camping gear',desc:'Buy anything missing in Balangoda.'},
+    {t:'~4:30 AM',who:['Dilum'],title:'Buy lunch packets'},
+    {t:'~5:00 AM',who:['Damsath'],title:'Get written bus times',desc:'First Balangoda → Marathenna bus and all return buses.'},
+    {t:'~6:00 AM',who:['All'],title:'Bus to Marathenna',desc:'Tell the conductor "Dethangala" — get off at the dolomite factory.'},
+    {t:'~7:30 AM',who:['All'],title:'Dolomite factory stop',desc:'Final gear and water check. Fill every bottle.'},
+    {t:'8:00 AM',who:['All'],title:'Hike starts',desc:'Stay together. Salt on shoes and socks for leeches.'},
+    {t:'8:00 AM',who:['Yapa','Mevidu'],title:'Navigation on',desc:'Vlog and offline map open at all times.'},
+    {t:'~10:00 AM',who:['All'],title:'First camp & stream',desc:'~2 hrs in. Refill ALL water — 3 L per person for the peak. No water above this point.'},
+    {t:'~11:00 AM',who:['Yapa','Mevidu'],title:'Path split',desc:'~1 hr after the stream. Take the path to the second peak.'},
+    {t:'~12:00 PM',who:['All'],title:'Lunch on the trail',desc:'Eat and move. Do not linger.'},
+    {t:'1:30 PM',who:['Manage'],title:'Target: the peak',desc:'Hard turn-around — if not at the path split by 12:30 PM, camp at the stream site instead. Manage decides.'},
+    {t:'~2:00 PM',who:['All'],title:'Pitch tents'},
+    {t:'3:00 PM',who:['All'],title:'Photo booth'},
+    {t:'4:00 PM',who:['All'],title:'Explore',desc:'Stay in sight of camp.'},
+    {t:'5:00 PM',who:['Cooking team'],title:'Start cooking dinner'},
+    {t:'6:00 PM',who:['All'],title:'Dinner and sunset'},
+    {t:'7:00–11:30 PM',who:['All'],title:'Campfire and free time',desc:'Lights out by midnight — it will be cold and misty.'}
+  ]},
+  d2:{label:'Day 2 · Sunday 11 Oct',sub:'Sunrise → buses home',items:[
+    {t:'5:45 AM',who:['Mevidu'],title:'Wake-up call',desc:'Everyone up. It is Mevidu\'s watch.'},
+    {t:'6:00 AM',who:['Kavishan','Dilum'],title:'Tea'},
+    {t:'6:15 AM',who:['All'],title:'Sunrise',desc:'From 1,858 m — the reason for all of this.'},
+    {t:'After sunrise',who:['All'],title:'Breakfast, pack up, clear all rubbish'},
+    {t:'~8:30 AM',who:['All'],title:'Start hiking down',desc:'About 3–4 hrs back to the dolomite factory.'},
+    {t:'~12:00 PM',who:['Damsath'],title:'Bus home',desc:'Back at the dolomite factory stop. Bus to Balangoda, then Colombo. Timing depends on Damsath\'s bus info.'}
+  ]}
+};
+
+const KIT=[
+  {id:'warm',icon:'snow',title:'Warmth',items:[
+    'Warm jacket or fleece','Thermal or long-sleeve base layer','Beanie / cap','Gloves','3 pairs of warm socks','Long pants — not shorts','Sleeping bag or thick blanket','Sleeping mat or foam pad']},
+  {id:'safe',icon:'bolt',title:'Rain, Leeches & Safety',items:[
+    'Rain jacket or poncho','Hiking shoes with grip','Salt in a small bottle — for leeches','Long socks to pull over pants','Headlamp or torch + spare batteries','Power bank + charging cable','Personal medicines','Plasters, pain relief, ORS','Whistle']},
+  {id:'gear',icon:'pack',title:'Gear & Hygiene',items:[
+    'Backpack with rain cover','Water — 1 L at start + capacity for 3 L','Plate, bowl and spoon','Your own cup if possible','Garbage bags','Toilet paper + wet wipes','Lighter or matches — waterproofed','Cash in small notes','NIC / ID copy']}
+];
+
+const RISKS=[
+  {ic:'clock',t:'Someone misses the first bus',p:'Be at Pettah 11:45 PM. Phone Manage if delayed. Night buses to Balangoda are limited and the wait can be long.'},
+  {ic:'compass',t:'No guide, wrong path',p:'Offline map and the vlog open at all times. Stay on the main path. Never split the group. Turn back at the 12:30 PM path-split deadline.'},
+  {ic:'pin',t:'Bus passes the dolomite factory',p:'Ask the conductor at boarding and again 15 minutes before. If it passes, use the map pin and get off at the nearest stop.'},
+  {ic:'leech',t:'Leeches',p:'Salt on shoes, socks over pants, check legs at every rest.'},
+  {ic:'drop',t:'No water on the peak',p:'Refill all bottles at the first-camp stream. Everyone carries 3 L. Do not go up short.'},
+  {ic:'bolt',t:'October storms & lightning',p:'Rain gear. Do not shelter under a lone tree or stand on the open peak during a thunderstorm.'},
+  {ic:'snow',t:'Cold and mist',p:'Layers, sleeping bags, hot tea. If anyone shivers uncontrollably or goes confused, warm them up and head down.'},
+  {ic:'bus',t:'No bus back',p:'Get times on Day 1. Keep the Rs 4,000 buffer untouched until the return is confirmed.'},
+  {ic:'flame',t:'Gas or kerosene refused on the bus',p:'Ask the conductor first. Backup: buy in Balangoda.'},
+  {ic:'trash',t:'Rubbish and fire',p:'Carry out everything. Put out the fire completely before sleeping.'}
+];
+
+/* ================= HELPERS ================= */
+const store={
+  get(k){try{return localStorage.getItem(k)}catch(e){return null}},
+  set(k,v){try{localStorage.setItem(k,v)}catch(e){}},
+  del(k){try{localStorage.removeItem(k)}catch(e){}}
+};
+const rs=n=>'Rs '+n.toLocaleString('en-US');
+
+/* reveal observer */
+const revealObs=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');revealObs.unobserve(en.target)}});
+},{threshold:.12,rootMargin:'0px 0px -30px 0px'});
+function watchReveals(scope){
+  (scope||document).querySelectorAll('.reveal:not(.in)').forEach(el=>{
+    if(el.dataset.d)el.style.transitionDelay=el.dataset.d+'ms';
+    revealObs.observe(el);
+  });
+}
+
+/* ================= HERO ================= */
+(function heroInit(){
+  // split title into letters
+  const h=document.getElementById('heroTitle');
+  h.innerHTML=[...h.textContent].map((c,i)=>`<span style="--i:${i}">${c}</span>`).join('');
+  // stars
+  const sky=document.getElementById('sky');
+  for(let i=0;i<140;i++){
+    const s=document.createElement('i');s.className='star';
+    s.style.left=(Math.random()*100)+'%';
+    s.style.top=(Math.random()*62)+'%';
+    const sz=(Math.random()*1.8+0.6).toFixed(2);
+    s.style.width=sz+'px';s.style.height=sz+'px';
+    s.style.setProperty('--td',(Math.random()*4+3).toFixed(1)+'s');
+    s.style.setProperty('--tdel',(Math.random()*5).toFixed(1)+'s');
+    if(Math.random()>.93)s.classList.add('big');
+    sky.appendChild(s);
+  }
+  // parallax
+  const hero=document.querySelector('.hero');
+  const layers=[
+    {el:sky,f:.05},{el:document.getElementById('moon'),f:.09},
+    {el:document.querySelector('.mtn.far'),f:.12},
+    {el:document.querySelector('.mtn.mid'),f:.22},
+    {el:document.querySelector('.mtn.near'),f:.38},
+    {el:document.getElementById('heroInner'),f:.3,fade:true}
+  ];
+  let tick=false;
+  function onScroll(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(()=>{
+      const sy=window.scrollY,hh=hero.offsetHeight;
+      if(sy<hh){layers.forEach(l=>{
+        l.el.style.transform=`translate3d(0,${(sy*l.f).toFixed(1)}px,0)`;
+        if(l.fade)l.el.style.opacity=Math.max(0,1-sy/(hh*.75));
+      });}
+      tick=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // gentle moon parallax on mouse
+  hero.addEventListener('mousemove',e=>{
+    const mx=e.clientX/innerWidth-.5,my=e.clientY/innerHeight-.5;
+    document.getElementById('moon').style.translate=`${(mx*14).toFixed(1)}px ${(my*10).toFixed(1)}px`;
+  });
+})();
+
+/* ================= BUILDERS ================= */
+(function buildGlance(){
+  document.getElementById('glanceWrap').innerHTML=GLANCE.map((g,i)=>`
+    <div class="g-card reveal" data-d="${i*70}">
+      <div class="g-ic"><span class="ic">${ICONS[g.icon]}</span></div>
+      <span class="g-k">${g.k}</span>
+      <div class="g-t">${g.t}</div>
+      <p class="g-d">${g.d}</p>
+    </div>`).join('');
+})();
+
+(function buildStops(){
+  document.getElementById('stopsWrap').innerHTML=STOPS.map((s,i)=>`
+    <div class="stop reveal" data-d="${i*60}">
+      <span class="n">${s.n}</span>
+      <h3>${s.t}</h3>
+      <span class="t">${s.time}</span>
+      <p>${s.d}</p>
+    </div>`).join('');
+})();
+
+/* route draw */
+(function initRoute(){
+  const svg=document.getElementById('routeSVG');
+  const tp=document.getElementById('trailPath');
+  const L=tp.getTotalLength();
+  tp.style.strokeDasharray=L;tp.style.strokeDashoffset=L;
+  const obs=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(en.isIntersecting){
+      tp.style.transition='stroke-dashoffset 2.6s cubic-bezier(.5,0,.3,1) .25s';
+      tp.style.strokeDashoffset='0';
+      svg.classList.add('on');
+      obs.unobserve(en.target);
+    }
+  })},{threshold:.35});
+  obs.observe(svg);
+})();
+
+/* generic dropdown factory */
+function makeDD(rootId,options,onChange,render){
+  const root=document.getElementById(rootId);
+  const btn=root.querySelector('.dd-btn');
+  const labelEl=root.querySelector('.dd-label');
+  const list=root.querySelector('.dd-list');
+  let value=options[0].value;
+  function buildList(){
+    list.innerHTML='';
+    options.forEach(o=>{
+      const b=document.createElement('button');
+      b.type='button';b.className='dd-opt'+(o.value===value?' sel':'');
+      b.innerHTML=render(o);
+      b.addEventListener('click',()=>{setValue(o.value);close();btn.focus();});
+      list.appendChild(b);
+    });
+  }
+  function setValue(v,fire){
+    value=v;
+    const o=options.find(x=>x.value===v);
+    labelEl.innerHTML=render(o);
+    buildList();
+    if(fire!==false)onChange(v);
+  }
+  function open(){root.classList.add('open');btn.setAttribute('aria-expanded','true')}
+  function close(){root.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  btn.addEventListener('click',()=>root.classList.contains('open')?close():open());
+  document.addEventListener('click',e=>{if(!root.contains(e.target))close()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  btn.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){e.preventDefault();open();const f=list.querySelector('.dd-opt');if(f)f.focus();}
+  });
+  list.addEventListener('keydown',e=>{
+    const opts=[...list.querySelectorAll('.dd-opt')];
+    const i=opts.indexOf(document.activeElement);
+    if(e.key==='ArrowDown'){e.preventDefault();opts[Math.min(i+1,opts.length-1)].focus()}
+    if(e.key==='ArrowUp'){e.preventDefault();opts[Math.max(i-1,0)].focus()}
+  });
+  setValue(value,false);
+  return{setValue};
+}
+
+/* itinerary */
+function buildTimeline(day){
+  const wrap=document.getElementById('tlWrap');
+  const data=DAYS[day];
+  wrap.classList.add('swap');
+  setTimeout(()=>{
+    wrap.innerHTML='<div class="tl-line"></div>'+data.items.map((it,i)=>`
+      <div class="tl-item" style="transition-delay:${Math.min(i*45,420)}ms">
+        <div class="tl-time">${it.t}${it.d?`<em>${it.d}</em>`:''}</div>
+        <div class="tl-mid"><span class="tl-dot"></span></div>
+        <div class="tl-card">
+          <h4>${it.title}</h4>
+          ${it.desc?`<p>${it.desc}</p>`:''}
+          <div class="who">${it.who.map(w=>`<span class="${w==='All'?'all':''}">${w}</span>`).join('')}</div>
+        </div>
+      </div>`).join('');
+    wrap.classList.remove('swap');
+    wrap.querySelectorAll('.tl-item').forEach(el=>revealObs.observe(el));
+  },220);
+}
+const dayDD=makeDD('dayDD',
+  [{value:'d1',label:DAYS.d1.label,sub:DAYS.d1.sub},{value:'d2',label:DAYS.d2.label,sub:DAYS.d2.sub}],
+  v=>buildTimeline(v),
+  o=>`<span class="dd-text"><b>${o.label}</b><i>${o.sub}</i></span>`
+);
+buildTimeline('d1');
+
+/* crew */
+function renderCrew(key){
+  const m=CREW.find(x=>x.key===key);
+  document.getElementById('dossier').innerHTML=`
+    <div class="dos-left">
+      <div class="dos-avatar">${m.initial}</div>
+      <div class="dos-name">
+        <h3>${m.name}</h3>
+        <span class="dos-full">${m.full}</span>
+        <span class="dos-tag">${m.tag}</span>
+      </div>
+      <p class="dos-summary">${m.summary}</p>
+      <div class="dos-pettah">
+        <span class="dos-lbl">Getting to Pettah</span>
+        <p>${m.pettah}</p>
+      </div>
+      <div class="dos-pay">
+        <span class="dos-lbl">Money — paid at Pettah</span>
+        <div class="pay-line"><span>Pool share</span><b>${rs(m.pay.base)}</b></div>
+        ${m.pay.credit?`
+          <div class="pay-line credit"><span>Last-hike credit</span><b>− ${rs(m.pay.credit)}</b></div>
+          <div class="pay-line"><span>Exact</span><b>${rs(m.pay.exact)}</b></div>
+          <div class="pay-total"><span>PAYS · ROUNDED</span><b>${rs(m.pay.rounded)}</b></div>`
+        :`<div class="pay-total"><span>PAYS · NO CREDIT</span><b>${rs(m.pay.rounded)}</b></div>`}
+        <p class="pay-where">To Manage · Pettah Bus Stand · before boarding</p>
+      </div>
+      ${m.note?`<p class="dos-note">${m.note}</p>`:''}
+    </div>
+    <div class="dos-right">
+      <div class="dos-block">
+        <h4>Brings</h4>
+        <ul class="dos-list">${m.bring.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+      <div class="dos-block">
+        <h4>Duties</h4>
+        <ul class="dos-list">${m.duties.map(d=>`<li>${d}</li>`).join('')}</ul>
+      </div>
+    </div>`;
+}
+let crewSwT;
+function selectCrew(key){
+  document.querySelectorAll('#crewChips .chip').forEach(c=>c.classList.toggle('active',c.dataset.k===key));
+  const d=document.getElementById('dossier');
+  d.classList.add('swap');
+  clearTimeout(crewSwT);
+  crewSwT=setTimeout(()=>{renderCrew(key);d.classList.remove('swap');},240);
+}
+(function buildCrew(){
+  const chips=document.getElementById('crewChips');
+  chips.innerHTML=CREW.map(m=>`<button type="button" class="chip" data-k="${m.key}"><span class="c-av">${m.initial}</span>${m.name}</button>`).join('');
+  chips.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{
+    crewDD.setValue(c.dataset.k,false);
+    selectCrew(c.dataset.k);
+  }));
+})();
+const crewDD=makeDD('crewDD',
+  CREW.map(m=>({value:m.key,m})),
+  k=>selectCrew(k),
+  o=>`<span class="av">${o.m.initial}</span><span class="dd-text"><b>${o.m.name}</b><i>${o.m.tag}</i></span>`
+);
+selectCrew('manage');
+
+/* budget — who pays */
+(function buildPays(){
+  const WHO=[['Senura',0],['Damsath',0],['Mevidu',1333],['Manage',1333],['Kavishan',1333],['Yapa',1333],['Theekshana',1333],['Dilum',1333]];
+  document.getElementById('whoWrap').innerHTML=WHO.map(([n,c])=>`
+    <div class="pay-card">
+      <div class="pn">${n}</div>
+      ${c?`<span class="pc cr">Rs ${c.toLocaleString()} credit</span>`:`<span class="pc nc">No credit</span>`}
+      <div class="pa">${rs(c?3300:4600)}</div>
+      <div class="pe">${c?`exact ${rs(4600-c)} · rounded`:'full pool share'} · to Manage at Pettah</div>
+    </div>`).join('');
+})();
+
+/* count-ups */
+(function initCounts(){
+  const obs=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(!en.isIntersecting)return;
+    const el=en.target,target=+el.dataset.n,t0=performance.now(),dur=1500;
+    (function step(t){
+      const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e).toLocaleString('en-US');
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+    obs.unobserve(el);
+  })},{threshold:.5});
+  document.querySelectorAll('.cnt').forEach(el=>obs.observe(el));
+})();
+
+/* gear checklists */
+function updateKitCounts(){
+  KIT.forEach((g,gi)=>{
+    const inputs=[...document.querySelectorAll(`input[data-k^="kit-${gi}-"]`)];
+    const c=inputs.filter(i=>i.checked).length;
+    const kc=document.getElementById('kc-'+gi),kb=document.getElementById('kb-'+gi);
+    if(kc)kc.textContent=c+'/'+g.items.length;
+    if(kb)kb.style.width=(c/g.items.length*100)+'%';
+  });
+}
+(function buildKit(){
+  document.getElementById('kitWrap').innerHTML=KIT.map((g,gi)=>`
+    <div class="kit-group reveal" data-d="${gi*110}">
+      <div class="kit-head">
+        <span class="ic">${ICONS[g.icon]}</span><h3>${g.title}</h3>
+        <span class="kit-count" id="kc-${gi}">0/${g.items.length}</span>
+      </div>
+      <div class="kit-bar"><i id="kb-${gi}"></i></div>
+      ${g.items.map((it,ii)=>`
+        <label class="check"><input type="checkbox" data-k="kit-${gi}-${ii}"><span class="box"></span><span class="txt">${it}</span></label>`).join('')}
+    </div>`).join('');
+  document.querySelectorAll('input[data-k]').forEach(inp=>{
+    if(store.get('dtk:'+inp.dataset.k)==='1')inp.checked=true;
+    inp.addEventListener('change',()=>{store.set('dtk:'+inp.dataset.k,inp.checked?'1':'0');updateKitCounts();});
+  });
+  updateKitCounts();
+  document.getElementById('kitReset').addEventListener('click',()=>{
+    document.querySelectorAll('input[data-k]').forEach(i=>{i.checked=false;store.del('dtk:'+i.dataset.k)});
+    updateKitCounts();
+  });
+})();
+
+/* bus board */
+(function initBoard(){
+  const savedEl=document.getElementById('boardSaved');let t;
+  document.querySelectorAll('.b-in').forEach(inp=>{
+    const k='dtk:board:'+inp.dataset.b;
+    const v=store.get(k);if(v)inp.value=v;
+    inp.addEventListener('input',()=>{
+      store.set(k,inp.value);
+      savedEl.classList.add('show');clearTimeout(t);
+      t=setTimeout(()=>savedEl.classList.remove('show'),1200);
+    });
+  });
+  document.getElementById('boardClear').addEventListener('click',()=>{
+    document.querySelectorAll('.b-in').forEach(i=>{i.value='';store.del('dtk:board:'+i.dataset.b)});
+  });
+})();
+
+/* risks */
+(function buildRisks(){
+  document.getElementById('risksWrap').innerHTML=RISKS.map((r,i)=>`
+    <div class="r-card reveal" data-d="${i*55}">
+      <div class="r-ic"><span class="ic">${ICONS[r.ic]}</span></div>
+      <h3>${r.t}</h3><p>${r.p}</p>
+    </div>`).join('');
+})();
+
+/* embers */
+(function buildEmbers(){
+  const em=document.getElementById('embers');
+  for(let i=0;i<26;i++){
+    const e=document.createElement('i');e.className='ember';
+    e.style.left=(Math.random()*100)+'%';
+    const s=(Math.random()*4+2).toFixed(1);
+    e.style.width=s+'px';e.style.height=s+'px';
+    e.style.setProperty('--rd',(Math.random()*7+6).toFixed(1)+'s');
+    e.style.setProperty('--rdel',(Math.random()*9).toFixed(1)+'s');
+    e.style.setProperty('--rx',(Math.random()*90-45).toFixed(0)+'px');
+    em.appendChild(e);
+  }
+})();
+
+/* ================= NAV ================= */
+(function initNav(){
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+  // burger
+  document.getElementById('burger').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
+  document.querySelectorAll('.m-menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
+  // more dropdown
+  const more=document.getElementById('navMore');
+  const moreBtn=more.querySelector('.nav-dd-btn');
+  moreBtn.addEventListener('click',e=>{e.stopPropagation();more.classList.toggle('open')});
+  document.addEventListener('click',()=>more.classList.remove('open'));
+  more.querySelectorAll('.nav-dd-menu a').forEach(a=>a.addEventListener('click',()=>more.classList.remove('open')));
+  // active section
+  const links=[...document.querySelectorAll('.nav-links a, .m-menu a')];
+  const obs=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(en.isIntersecting){
+      links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+en.target.id));
+    }
+  })},{rootMargin:'-45% 0px -50% 0px'});
+  ['glance','route','schedule','transport','crew','budget','gear','bus','risks'].forEach(id=>{
+    const el=document.getElementById(id);if(el)obs.observe(el);
+  });
+})();
+
+/* watch all reveals last */
+watchReveals();
+</script>
+</body>
+</html>
