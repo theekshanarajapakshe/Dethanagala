@@ -13,9 +13,9 @@
 <style>
 /* ============ TOKENS & BASE ============ */
 :root{
-  --bg:#faf9f6;            /* warm paper */
-  --bg2:#f3f1ea;           /* warm paper alt */
-  --mist:#eef2f5;          /* cool mist sections */
+  --bg:#faf9f6;
+  --bg2:#f3f1ea;
+  --mist:#eef2f5;
   --panel:#ffffff;
   --panel2:#fdfcf9;
   --ink:#1f2e38;
@@ -53,21 +53,17 @@ section,header{scroll-margin-top:76px}
 :focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
 button{font-family:var(--fb)}
 
-/* paper grain (subtle, light) */
 .grain{position:fixed;inset:-60%;width:220%;height:220%;pointer-events:none;z-index:9999;opacity:.05;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain 1.6s steps(6) infinite}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-2%,2%)}40%{transform:translate(2%,-1%)}60%{transform:translate(-1%,-2%)}80%{transform:translate(2%,2%)}100%{transform:translate(0,0)}}
 
-/* icons */
 .ic{display:inline-grid;place-items:center;width:22px;height:22px}
 .ic svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-/* buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:.3s;border:1px solid transparent;cursor:pointer}
 .btn.solid{background:linear-gradient(180deg,#e9b76d,#cf8f3d);color:#2b1c07;box-shadow:0 8px 26px rgba(201,131,50,.35)}
 .btn.solid:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(201,131,50,.45)}
@@ -104,7 +100,7 @@ body.menu-open .m-menu{opacity:1;pointer-events:auto}
 .m-menu a{text-decoration:none;font-family:var(--fd);letter-spacing:.2em;font-size:1.05rem;color:var(--muted);padding:11px 20px;transition:.25s}
 .m-menu a:hover,.m-menu a.active{color:var(--amber-deep)}
 
-/* ============ HERO (daylight) ============ */
+/* ============ HERO ============ */
 .hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(180deg,#dcebf4 0%,#e7eff4 38%,#f0eee4 74%,#f7f3e9 100%)}
 .hero-art{position:absolute;inset:0;z-index:1}
@@ -187,7 +183,6 @@ body.menu-open .m-menu{opacity:1;pointer-events:auto}
 .note-panel b{font-family:var(--fm);font-size:.64rem;letter-spacing:.3em;color:var(--amber-deep);display:block;margin-bottom:8px}
 .note-panel p{font-size:.92rem;color:var(--muted)}
 
-/* at a glance */
 .g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .g-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;transition:.35s;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .g-card::after{content:"";position:absolute;inset:0;background:radial-gradient(320px 150px at 18% 0%,rgba(201,131,50,.08),transparent 70%);opacity:0;transition:.4s}
@@ -450,14 +445,13 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
   .lb.bot span{font-size:6.5px}
   .dos-left,.dos-right,.board{padding:22px}
   .brand{font-size:.8rem;letter-spacing:.2em}
-  .bf input{font-size:16px} /* prevents iOS zoom-on-focus */
+  .bf input{font-size:16px}
   .dd-list{max-height:56vh}
   .sun{width:80px;height:80px}
   .interlude{padding:110px 20px}
   footer{padding:80px 20px 50px}
 }
 @media (max-width:640px){
-  /* timeline switches to left-rail layout */
   .tl-item{grid-template-columns:34px 1fr;grid-template-rows:auto auto}
   .tl-time{grid-column:2;grid-row:1;text-align:left;font-size:.72rem;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding-top:8px}
   .tl-time em{display:inline}
@@ -561,6 +555,7 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
     <p class="tagline rl d4">Eight boys. One night. The second peak.</p>
     <div class="hero-meta rl d5">
       <span>Fri 9 Oct · 11:45 PM · Pettah</span>
+      <span>Sat 10 Oct · Peak by 3 PM</span>
       <span>Sun 11 Oct · Sunrise &amp; Home</span>
       <span>No Guide · No Permits · Footprints Only</span>
     </div>
@@ -596,8 +591,8 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
     <div class="reel-head reveal">
       <div class="reel-no"><i></i>Reel 02 · The Route<i></i></div>
       <h2>Colombo to the Second Peak</h2>
-      <p class="slug">EXT. NIGHT BUS — MIDNIGHT TO DAWN</p>
-      <p class="reel-sub">One night bus, one local bus, one jungle trail — and 1,858 metres of Sri Lanka.</p>
+      <p class="slug">EXT. NIGHT BUS — MIDNIGHT TO MORNING</p>
+      <p class="reel-sub">One night bus, one 2-hour local bus, one jungle trail — and 1,858 metres of Sri Lanka.</p>
     </div>
 
     <div class="route-frame reveal">
@@ -629,23 +624,23 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
           <g class="wp" style="--n:1">
             <circle class="wdot" cx="240" cy="262" r="5"/>
             <text class="wname" x="240" y="238" text-anchor="middle">BALANGODA</text>
-            <text class="wsub" x="240" y="222" text-anchor="middle">~4:00 AM</text>
+            <text class="wsub" x="240" y="222" text-anchor="middle">ARRIVE ~6:00 AM</text>
           </g>
           <g class="wp" style="--n:2">
             <circle class="wdot" cx="425" cy="236" r="5"/>
             <text class="wname" x="425" y="212" text-anchor="middle">DOLOMITE FACTORY</text>
-            <text class="wsub" x="425" y="196" text-anchor="middle">TRAILHEAD · ~7:30 AM</text>
+            <text class="wsub" x="425" y="196" text-anchor="middle">TRAILHEAD · ~9:00 AM</text>
           </g>
           <g class="wp" style="--n:3">
             <circle class="wdot" cx="600" cy="150" r="5"/>
             <text class="wname" x="600" y="126" text-anchor="middle">FIRST CAMP &amp; STREAM</text>
-            <text class="wsub" x="600" y="110" text-anchor="middle">REFILL 3 L EACH · ~10 AM</text>
+            <text class="wsub" x="600" y="110" text-anchor="middle">REFILL 3 L EACH · ~11:30 AM</text>
             <text class="warn-t" x="600" y="196" text-anchor="middle">↑ NO WATER ABOVE THIS POINT</text>
           </g>
           <g class="wp" style="--n:4">
             <circle class="wdot" cx="720" cy="122" r="5"/>
             <text class="wname" x="720" y="98" text-anchor="middle">PATH SPLIT</text>
-            <text class="wsub" x="720" y="82" text-anchor="middle">~11 AM · SECOND-PEAK PATH</text>
+            <text class="wsub" x="720" y="82" text-anchor="middle">~12:30 PM · 2 PM DEADLINE</text>
           </g>
           <g class="wp" style="--n:5">
             <circle class="wdot dim" cx="835" cy="92" r="3.5"/>
@@ -656,12 +651,12 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
             <circle class="wdot peak" cx="930" cy="55" r="5.5"/>
             <line class="flagpole" x1="930" y1="55" x2="930" y2="26"/>
             <path class="flag" d="M930,26 l17,5.5 -17,5.5 z"/>
-            <text class="wsub peak-t" x="912" y="28" text-anchor="end">1,858 M · CAMP</text>
+            <text class="wsub peak-t" x="912" y="28" text-anchor="end">1,858 M · ~3:00 PM</text>
             <text class="wname" x="912" y="47" text-anchor="end">THE SECOND PEAK</text>
           </g>
           <g class="segs">
-            <text class="seg" x="147" y="344" text-anchor="middle">NIGHT BUS · 3.5–4.5 H · RS 1,000</text>
-            <text class="seg" x="332" y="284" text-anchor="middle">LOCAL BUS · 1–1.5 H · RS 200</text>
+            <text class="seg" x="147" y="344" text-anchor="middle">NIGHT BUS · ~5.5 H · RS 1,000</text>
+            <text class="seg" x="332" y="284" text-anchor="middle">LOCAL BUS · 2 H · RS 200</text>
             <text class="seg" x="512" y="224" text-anchor="middle">JUNGLE TRAIL · ~2 H</text>
             <text class="seg" x="663" y="152" text-anchor="middle">TRAIL · ~1 H</text>
             <text class="seg" x="882" y="114" text-anchor="middle">TRAIL · ~1.5 H</text>
@@ -698,7 +693,7 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
     <div class="reel-head reveal">
       <div class="reel-no"><i></i>Reel 03 · The Schedule<i></i></div>
       <h2>Two Days on the Mountain</h2>
-      <p class="slug">EXT. JUNGLE TRAIL — DAWN TO NIGHT</p>
+      <p class="slug">EXT. JUNGLE TRAIL — 9:30 AM TO MIDNIGHT</p>
       <p class="reel-sub">Hour by hour, from the midnight bus to the Sunday sunrise.</p>
     </div>
 
@@ -716,8 +711,8 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
     <div class="tl-wrap" id="tlWrap"><div class="tl-line"></div></div>
 
     <div class="note-panel reveal">
-      <b>TIME CHECK</b>
-      <p>Jungle trail with climbing sections, loaded packs and no guide. If the group is slower than the timings above, drop the photo booth and exploring — not the tent time. Reach camp with an hour of daylight left.</p>
+      <b>TIME CHECK — SUNSET IS AROUND 6:00 PM</b>
+      <p>Jungle trail with climbing sections, loaded packs and no guide. The later start leaves less slack: if the group is slower than the timings above, drop the photo booth and exploring — not the tent time. Pitch tents by 5:00 PM at the latest and reach camp with an hour of daylight left.</p>
     </div>
   </div>
 </section>
@@ -729,7 +724,7 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
       <div class="reel-no"><i></i>Reel 04 · The Fleet<i></i></div>
       <h2>Getting There</h2>
       <p class="slug">EXT. COLOMBO STREETS — LATE NIGHT</p>
-      <p class="reel-sub">Three groups, one deadline: 11:45 PM at Pettah.</p>
+      <p class="reel-sub">Three groups, one deadline: 11:45 PM at Pettah. In Balangoda by 6:00 AM.</p>
     </div>
 
     <div class="groups">
@@ -755,36 +750,36 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
 
     <div class="note-panel reveal">
       <b>DO NOT BE LATE</b>
-      <p>Night buses to Balangoda are limited. If the group misses the first one, the wait can be hours and the whole schedule moves. If one person is stuck in traffic, call Manage immediately.</p>
+      <p>Night buses to Balangoda are limited. If the group misses the first one, the wait can be hours and the whole schedule moves — the Marathenna connection and the 2:00 PM path-split deadline depend on arriving by 6:00 AM. If one person is stuck in traffic, call Manage immediately.</p>
     </div>
 
     <div class="legs">
       <div class="leg reveal" data-d="0">
         <span class="ln">LEG 01 · OUT</span>
         <h3>Pettah → Balangoda</h3>
-        <p>Colombo–Badulla route bus via Ratnapura, normal if available. Departure time confirmed at Bastian Mawatha.</p>
-        <div class="dur">~3.5 – 4.5 HRS</div>
+        <p>Colombo–Badulla route bus via Ratnapura, normal if available. Departs after midnight — exact time confirmed at Bastian Mawatha. Ride through the night, arrive by 6:00 AM.</p>
+        <div class="dur">ARRIVE BY 6:00 AM</div>
         <div class="fare"><b>Rs 1,000</b><i>BUDGETED</i></div>
       </div>
       <div class="leg reveal" data-d="90">
         <span class="ln">LEG 02 · OUT</span>
         <h3>Balangoda → Marathenna</h3>
-        <p>Local bus towards Marathenna. Tell the conductor “Dethangala” and get off at the dolomite factory, where the hike starts.</p>
-        <div class="dur">~1 – 1.5 HRS</div>
+        <p>First local bus around 7:00 AM — Damsath confirms the time. Tell the conductor “Dethangala” and get off at the dolomite factory, where the hike starts.</p>
+        <div class="dur">~2 HRS · FIRST BUS ~7:00 AM</div>
         <div class="fare"><b>Rs 200</b><i>ESTIMATE</i></div>
       </div>
       <div class="leg reveal" data-d="180">
         <span class="ln">LEG 03 · RETURN</span>
         <h3>Marathenna → Balangoda</h3>
-        <p>Local bus. Time to be confirmed — Damsath gets it in writing on Day 1 morning.</p>
-        <div class="dur">TIME TBC</div>
+        <p>Local bus, about 2 hrs back. Time to be confirmed — Damsath gets it in writing on Day 1 morning.</p>
+        <div class="dur">~2 HRS · TIME TBC</div>
         <div class="fare"><b>Rs 200</b><i>ESTIMATE</i></div>
       </div>
       <div class="leg reveal" data-d="270">
         <span class="ln">LEG 04 · RETURN</span>
         <h3>Balangoda → Pettah</h3>
-        <p>Colombo-bound bus. Time to be confirmed — Sunday departures on the Bus Board.</p>
-        <div class="dur">TIME TBC</div>
+        <p>Colombo-bound bus. Time to be confirmed on the Bus Board — home by about 8:30 PM if the buses connect.</p>
+        <div class="dur">TIME TBC · HOME ~8:30 PM</div>
         <div class="fare"><b>Rs 1,000</b><i>BUDGETED</i></div>
       </div>
     </div>
@@ -920,7 +915,7 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
     <div class="reel-head reveal">
       <div class="reel-no"><i></i>Reel 08 · The Board<i></i></div>
       <h2>Damsath's Bus Board</h2>
-      <p class="slug">INT. BALANGODA BUS STAND — 5:00 AM</p>
+      <p class="slug">INT. BALANGODA BUS STAND — ~6:30 AM</p>
       <p class="reel-sub">Six questions. Fill it in on Day 1 morning — in writing.</p>
     </div>
 
@@ -934,16 +929,16 @@ footer h2 em{font-style:normal;color:var(--amber-deep)}
         <button class="btn ghost small" id="boardClear" type="button">Clear Board</button>
       </div>
       <div class="board-grid">
-        <div class="bf"><label><b>01</b>Pettah → Balangoda — departure time &amp; fare</label><input class="b-in" data-b="1" type="text" placeholder="e.g. 00:15 from Bastian Mawatha · Rs 260"></div>
-        <div class="bf"><label><b>02</b>Balangoda → Marathenna — first bus on Saturday</label><input class="b-in" data-b="2" type="text" placeholder="e.g. 6:10 AM"></div>
+        <div class="bf"><label><b>01</b>Pettah → Balangoda — departure time &amp; fare</label><input class="b-in" data-b="1" type="text" placeholder="e.g. 00:30 from Bastian Mawatha · Rs 260"></div>
+        <div class="bf"><label><b>02</b>Balangoda → Marathenna — first bus Sat (~2 hr ride)</label><input class="b-in" data-b="2" type="text" placeholder="e.g. 7:00 AM"></div>
         <div class="bf"><label><b>03</b>Marathenna → Balangoda — last bus on Sunday</label><input class="b-in" data-b="3" type="text" placeholder="e.g. 4:30 PM — write this on Day 1"></div>
-        <div class="bf"><label><b>04</b>Balangoda → Colombo — Sunday departures</label><input class="b-in" data-b="4" type="text" placeholder="e.g. 1:15 · 2:40 · 4:00"></div>
+        <div class="bf"><label><b>04</b>Balangoda → Colombo — Sunday departures</label><input class="b-in" data-b="4" type="text" placeholder="e.g. 2:40 · 4:00 · 5:15"></div>
         <div class="bf"><label><b>05</b>Conductor name / bus number</label><input class="b-in" data-b="5" type="text" placeholder="e.g. Ajith · NB 7712"></div>
         <div class="bf"><label><b>06</b>Does the bus stop at the dolomite factory?</label><input class="b-in" data-b="6" type="text" placeholder="YES / NO — asked at boarding &amp; 15 min before"></div>
       </div>
       <div class="note-panel">
         <b>THE RULE OF THE BOARD</b>
-        <p>Without confirmed return buses, do not start the hike down. Write the last Marathenna bus time here on Day 1 morning. If the last bus is early, move the Day 2 schedule earlier.</p>
+        <p>Without confirmed return buses, do not start the hike down. Write the last Marathenna bus time here on Day 1 morning. If the last bus is early, move the Day 2 schedule earlier. Remember: the Marathenna bus ride is 2 hours each way — plan the descent around it.</p>
       </div>
     </div>
   </div>
@@ -1005,10 +1000,10 @@ const ICONS={
 
 const GLANCE=[
   {icon:'pin',k:'Meet',t:'Fri 9 Oct · 11:45 PM sharp',d:'Pettah Bus Stand, Colombo Central. All 8 — including Dilum. Nobody late.'},
-  {icon:'bus',k:'Bus out',t:'First bus after midnight',d:'Colombo → Balangoda on the Colombo–Badulla route. Exact time confirmed at the stand.'},
-  {icon:'flag',k:'Then',t:'Balangoda → Marathenna',d:'Tell the conductor "Dethangala" — get off at the dolomite factory stop, where the hike starts.'},
-  {icon:'compass',k:'Hike',t:'Jungle trail · 3+ hrs',d:'~2 hrs to the first camp with a stream, ~1 more hr to the path split. Take the path to the second peak.'},
-  {icon:'tent',k:'Camp',t:'Saturday night near the peak',d:'Sunrise on Sunday 11 Oct, then hike down and head home.'},
+  {icon:'bus',k:'Bus out',t:'First bus after midnight',d:'Colombo → Balangoda on the Colombo–Badulla route, all night. In Balangoda by 6:00 AM — time confirmed at the stand.'},
+  {icon:'flag',k:'Then',t:'Balangoda → Marathenna · 2 hrs',d:'First bus ~7:00 AM (Damsath confirms). Tell the conductor "Dethangala" — get off at the dolomite factory stop, where the hike starts.'},
+  {icon:'compass',k:'Hike',t:'Jungle trail · starts 9:30 AM',d:'~2 hrs to the first camp with a stream, ~1 more hr to the path split. Take the path to the second peak.'},
+  {icon:'tent',k:'Camp',t:'Peak by 3:00 PM, camp Saturday night',d:'Sunrise on Sunday 11 Oct, then hike down and head home.'},
   {icon:'coins',k:'Money',t:'Rs 3,300 or Rs 4,600 each',d:'Paid to Manage at Pettah. Full budget in Reel 06.'},
   {icon:'check',k:'Confirmed',t:'No permits · No guide',d:'Team confirmed no permits needed. Water on the way — none on the peak.'},
   {icon:'people',k:'Team',t:'8 in the credits',d:'Manage · Yapa · Theekshana · Dilum · Damsath · Senura · Kavishan · Mevidu'}
@@ -1016,19 +1011,19 @@ const GLANCE=[
 
 const STOPS=[
   {n:'01',t:'Pettah Bus Stand',time:'FRI · 11:45 PM',d:'All 8, including Dilum. Everyone pays Manage here. First Colombo–Badulla bus after midnight.'},
-  {n:'02',t:'Balangoda',time:'~4:00 AM',d:'Toilets, breakfast, rest. Gear check (Kavishan), lunch packets (Dilum), bus times in writing (Damsath).'},
-  {n:'03',t:'Dolomite Factory',time:'~7:30 AM',d:'Tell the conductor "Dethangala" and get off here. Final gear and water check — fill every bottle.'},
-  {n:'04',t:'First Camp & Stream',time:'~10:00 AM',d:'Refill ALL water — 3 L per person for the peak. No water above this point.'},
-  {n:'05',t:'Path Split',time:'~11:00 AM',d:'About 1 hr past the stream. Take the path to the second peak. Hard deadline: 12:30 PM.'},
-  {n:'06',t:'The Second Peak',time:'1:30 PM target',d:'1,858 m. Pitch tents, photo booth at 3:00, explore at 4:00, dinner and sunset at 6:00.'},
-  {n:'07',t:'Sunrise & Down',time:'SUN · 6:15 AM',d:'Sunrise from the summit, breakfast, pack up, clear all rubbish — 3–4 hrs back down and buses home.'}
+  {n:'02',t:'Balangoda',time:'~6:00 AM',d:'A short, busy stop — toilets, breakfast, gear check (Kavishan), lunch packets (Dilum), bus times in writing (Damsath).'},
+  {n:'03',t:'Dolomite Factory',time:'~9:00 AM',d:'About 2 hrs on the local bus from Balangoda. Tell the conductor "Dethangala" and get off here. Final gear and water check — fill every bottle.'},
+  {n:'04',t:'First Camp & Stream',time:'~11:30 AM',d:'Refill ALL water — 3 L per person for the peak. No water above this point.'},
+  {n:'05',t:'Path Split',time:'~12:30 PM',d:'About 1 hr past the stream. Take the path to the second peak. Hard deadline: 2:00 PM.'},
+  {n:'06',t:'The Second Peak',time:'3:00 PM target',d:'1,858 m. Tents by 3:30, photo booth at 4:00, explore at 4:30, dinner and sunset at 6:00.'},
+  {n:'07',t:'Sunrise & Down',time:'SUN · 6:15 AM',d:'Sunrise from the summit, breakfast, pack up, clear all rubbish — 3–4 hrs down, then the 2-hr bus to Balangoda and home.'}
 ];
 
 const CREW=[
   {key:'manage',name:'Manage',full:'Nisaja',tag:'The Boss',initial:'M',
    summary:'Overall budget and final calls. Collects every share at Pettah, holds the emergency buffer and the Rs 8,000 hike surplus with Yapa. First to the top to pick the tent spot; handles any foreigners with Theekshana.',
    bring:['Limes ×5'],
-   duties:['Overall budget — collect each person\'s share at Pettah','Reach the top first, pitch tents in the best spot','Decide the turn-around call at the path split — 12:30 PM deadline','Handle any foreigners, with Theekshana','Hold the emergency buffer (Rs 4,000) and the Rs 8,000 hike surplus with Yapa'],
+   duties:['Overall budget — collect each person\'s share at Pettah','Reach the top first, pitch tents in the best spot','Decide the turn-around call at the path split — 2:00 PM deadline','Handle any foreigners, with Theekshana','Hold the emergency buffer (Rs 4,000) and the Rs 8,000 hike surplus with Yapa'],
    pettah:'Route 138 with the group — leave early, the last buses are slow',
    pay:{base:4600,credit:1333,exact:3267,rounded:3300},
    note:'Collects everyone else\'s share. Nobody boards the bus without paying.'},
@@ -1045,15 +1040,15 @@ const CREW=[
    pettah:'Route 138 with Yapa\'s group — leave early, the last buses are slow',
    pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
   {key:'dilum',name:'Dilum',full:'Dilum Theekshana',tag:'The Chef',initial:'D',
-   summary:'Lunch packets in Balangoda at 4:30 AM and morning tea with Kavishan on the summit. Travels to Pettah with Yapa\'s group on route 138.',
+   summary:'Lunch packets in Balangoda at ~6:30 AM and morning tea with Kavishan on the summit. Travels to Pettah with Yapa\'s group on route 138.',
    bring:['Knife ×1','Mannaya (griddle)'],
-   duties:['Come to Pettah with Yapa\'s group (route 138)','Buy lunch packets in Balangoda (~4:30 AM)','Morning tea with Kavishan (6:00 AM, Day 2)'],
+   duties:['Come to Pettah with Yapa\'s group (route 138)','Buy lunch packets in Balangoda (~6:30 AM) — the stopover is short, be quick','Morning tea with Kavishan (6:00 AM, Day 2)'],
    pettah:'Route 138 with Yapa\'s group — leave early, the last buses are slow',
    pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
   {key:'damsath',name:'Damsath',full:'Damsath Chiranjeewa',tag:'The Timetable',initial:'D',
-   summary:'The bus brain of the trip. Tells every conductor the stops, gets all bus times in writing — and the whole return timing depends on him.',
+   summary:'The bus brain of the trip. Tells every conductor the stops, gets all bus times in writing — the first ~7:00 AM Marathenna bus and every return — and the whole return timing depends on him.',
    bring:['Small pots ×2'],
-   duties:['Tell the conductors the stops — Balangoda, Marathenna, the dolomite factory','Get written bus times — first Balangoda → Marathenna bus and all returns (fill the Bus Board)','Return timing depends on him'],
+   duties:['Tell the conductors the stops — Balangoda, Marathenna, the dolomite factory','Get written bus times before boarding — first Balangoda → Marathenna bus (~7:00 AM) and all returns (fill the Bus Board)','Return timing depends on him'],
    pettah:'PickMe to Pettah — book with a time buffer',
    pay:{base:4600,credit:0,exact:4600,rounded:4600}},
   {key:'senura',name:'Senura',full:'Senura',tag:'The Campmaster',initial:'S',
@@ -1063,9 +1058,9 @@ const CREW=[
    pettah:'PickMe to Pettah — book with a time buffer',
    pay:{base:4600,credit:0,exact:4600,rounded:4600}},
   {key:'kavishan',name:'Kavishan',full:'Kavishan',tag:'The Provisioner',initial:'K',
-   summary:'Buys all the shop food (Rs 8,000) before the trip, checks every piece of camping gear in Balangoda at ~4 AM and buys whatever is missing. Morning tea with Dilum.',
+   summary:'Buys all the shop food (Rs 8,000) before the trip, checks every piece of camping gear in Balangoda at ~6 AM and buys whatever is missing. Morning tea with Dilum.',
    bring:['Saucepan ×1','Tomatoes ×3','Firewood bundles ×5 — reconsider: heavy and likely wet on a jungle trail'],
-   duties:['Buy all shop food (Rs 8,000) before the trip','Check ALL camping gear in Balangoda (~4 AM); buy anything missing','Morning tea with Dilum (6:00 AM, Day 2)','Tarpaulin / ground sheet — check in Balangoda'],
+   duties:['Buy all shop food (Rs 8,000) before the trip','Check ALL camping gear in Balangoda (~6 AM, right off the bus); buy anything missing — fast, the Marathenna bus is at ~7:00 AM','Morning tea with Dilum (6:00 AM, Day 2)','Tarpaulin / ground sheet — check in Balangoda'],
    pettah:'PickMe to Pettah — book with a time buffer',
    pay:{base:4600,credit:1333,exact:3267,rounded:3300}},
   {key:'mevidu',name:'Mevidu',full:'Mevidu',tag:'The Pathfinder',initial:'M',
@@ -1077,25 +1072,25 @@ const CREW=[
 ];
 
 const DAYS={
-  d1:{label:'Day 1 · Saturday 10 Oct',sub:'Midnight bus → campfire',items:[
+  d1:{label:'Day 1 · Saturday 10 Oct',sub:'Night bus → campfire',items:[
     {t:'11:45 PM',d:'FRI',who:['All'],title:'Everyone at Pettah Bus Stand',desc:'Colombo Central. All 8, including Dilum. Each person pays Manage here.'},
-    {t:'~12:00–12:30 AM',who:['All'],title:'Board the Balangoda bus',desc:'Colombo–Badulla route bus via Ratnapura. Exact departure time confirmed at Bastian Mawatha.'},
-    {t:'~4:00 AM',who:['Damsath'],title:'Arrive Balangoda',desc:'Toilets, breakfast, rest. Sleepers get woken up.'},
-    {t:'~4:00 AM',who:['Kavishan'],title:'Check ALL camping gear',desc:'Buy anything missing in Balangoda.'},
-    {t:'~4:30 AM',who:['Dilum'],title:'Buy lunch packets'},
-    {t:'~5:00 AM',who:['Damsath'],title:'Get written bus times',desc:'First Balangoda → Marathenna bus and all return buses.'},
-    {t:'~6:00 AM',who:['All'],title:'Bus to Marathenna',desc:'Tell the conductor "Dethangala" — get off at the dolomite factory.'},
-    {t:'~7:30 AM',who:['All'],title:'Dolomite factory stop',desc:'Final gear and water check. Fill every bottle.'},
-    {t:'8:00 AM',who:['All'],title:'Hike starts',desc:'Stay together. Salt on shoes and socks for leeches.'},
-    {t:'8:00 AM',who:['Yapa','Mevidu'],title:'Navigation on',desc:'Vlog and offline map open at all times.'},
-    {t:'~10:00 AM',who:['All'],title:'First camp & stream',desc:'~2 hrs in. Refill ALL water — 3 L per person for the peak. No water above this point.'},
-    {t:'~11:00 AM',who:['Yapa','Mevidu'],title:'Path split',desc:'~1 hr after the stream. Take the path to the second peak.'},
-    {t:'~12:00 PM',who:['All'],title:'Lunch on the trail',desc:'Eat and move. Do not linger.'},
-    {t:'1:30 PM',who:['Manage'],title:'Target: the peak',desc:'Hard turn-around — if not at the path split by 12:30 PM, camp at the stream site instead. Manage decides.'},
-    {t:'~2:00 PM',who:['All'],title:'Pitch tents'},
-    {t:'3:00 PM',who:['All'],title:'Photo booth'},
-    {t:'4:00 PM',who:['All'],title:'Explore',desc:'Stay in sight of camp.'},
-    {t:'5:00 PM',who:['Cooking team'],title:'Start cooking dinner'},
+    {t:'~12:00–12:30 AM',who:['All'],title:'Board the Balangoda bus',desc:'Colombo–Badulla route bus via Ratnapura. Ride through the night — arrival by 6:00 AM.'},
+    {t:'~6:00 AM',who:['Damsath'],title:'Arrive Balangoda',desc:'Toilets, breakfast, rest. Sleepers get woken up — the stopover is short.'},
+    {t:'~6:00 AM',who:['Kavishan'],title:'Check ALL camping gear',desc:'Buy anything missing in Balangoda — be quick, the Marathenna bus is at ~7:00 AM.'},
+    {t:'~6:30 AM',who:['Dilum'],title:'Buy lunch packets'},
+    {t:'~6:30 AM',who:['Damsath'],title:'Get written bus times',desc:'First Balangoda → Marathenna bus and all return buses — before boarding.'},
+    {t:'~7:00 AM',who:['All'],title:'First bus to Marathenna',desc:'Local bus towards Marathenna. Tell the conductor "Dethangala" — get off at the dolomite factory. Damsath confirms the first-bus time.'},
+    {t:'~9:00 AM',who:['All'],title:'Dolomite factory stop',desc:'About 2 hrs on the local bus. Final gear and water check. Fill every bottle.'},
+    {t:'9:30 AM',who:['All'],title:'Hike starts',desc:'Stay together. Salt on shoes and socks for leeches.'},
+    {t:'9:30 AM',who:['Yapa','Mevidu'],title:'Navigation on',desc:'Vlog and offline map open at all times.'},
+    {t:'~11:30 AM',who:['All'],title:'First camp & stream',desc:'~2 hrs in. Refill ALL water — 3 L per person for the peak. No water above this point.'},
+    {t:'~12:30 PM',who:['Yapa','Mevidu'],title:'Path split',desc:'~1 hr after the stream. Take the path to the second peak.'},
+    {t:'~1:00 PM',who:['All'],title:'Lunch on the trail',desc:'Eat and move. Do not linger.'},
+    {t:'3:00 PM',who:['Manage'],title:'Target: the peak',desc:'Hard turn-around — if not at the path split by 2:00 PM, camp at the stream site instead. Manage decides.'},
+    {t:'~3:30 PM',who:['All'],title:'Pitch tents'},
+    {t:'4:00 PM',who:['All'],title:'Photo booth'},
+    {t:'4:30 PM',who:['All'],title:'Explore',desc:'Stay in sight of camp.'},
+    {t:'5:15 PM',who:['Cooking team'],title:'Start cooking dinner'},
     {t:'6:00 PM',who:['All'],title:'Dinner and sunset'},
     {t:'7:00–11:30 PM',who:['All'],title:'Campfire and free time',desc:'Lights out by midnight — it will be cold and misty.'}
   ]},
@@ -1105,7 +1100,7 @@ const DAYS={
     {t:'6:15 AM',who:['All'],title:'Sunrise',desc:'From 1,858 m — the reason for all of this.'},
     {t:'After sunrise',who:['All'],title:'Breakfast, pack up, clear all rubbish'},
     {t:'~8:30 AM',who:['All'],title:'Start hiking down',desc:'About 3–4 hrs back to the dolomite factory.'},
-    {t:'~12:00 PM',who:['Damsath'],title:'Bus home',desc:'Back at the dolomite factory stop. Bus to Balangoda, then Colombo. Timing depends on Damsath\'s bus info.'}
+    {t:'~12:00 PM',who:['Damsath'],title:'Bus home',desc:'Back at the dolomite factory stop. 2-hr bus to Balangoda (~2:30 PM), then the Colombo bus — home by about 8:30 PM if the buses connect. Timing depends on Damsath\'s bus info.'}
   ]}
 };
 
@@ -1119,14 +1114,14 @@ const KIT=[
 ];
 
 const RISKS=[
-  {ic:'clock',t:'Someone misses the first bus',p:'Be at Pettah 11:45 PM. Phone Manage if delayed. Night buses to Balangoda are limited and the wait can be long.'},
-  {ic:'compass',t:'No guide, wrong path',p:'Offline map and the vlog open at all times. Stay on the main path. Never split the group. Turn back at the 12:30 PM path-split deadline.'},
+  {ic:'clock',t:'Someone misses the first bus',p:'Be at Pettah 11:45 PM. Phone Manage if delayed. Night buses to Balangoda are limited and the wait can be long — everything downstream depends on the 6:00 AM arrival.'},
+  {ic:'compass',t:'No guide, wrong path',p:'Offline map and the vlog open at all times. Stay on the main path. Never split the group. Turn back at the 2:00 PM path-split deadline.'},
   {ic:'pin',t:'Bus passes the dolomite factory',p:'Ask the conductor at boarding and again 15 minutes before. If it passes, use the map pin and get off at the nearest stop.'},
   {ic:'leech',t:'Leeches',p:'Salt on shoes, socks over pants, check legs at every rest.'},
   {ic:'drop',t:'No water on the peak',p:'Refill all bottles at the first-camp stream. Everyone carries 3 L. Do not go up short.'},
   {ic:'bolt',t:'October storms & lightning',p:'Rain gear. Do not shelter under a lone tree or stand on the open peak during a thunderstorm.'},
   {ic:'snow',t:'Cold and mist',p:'Layers, sleeping bags, hot tea. If anyone shivers uncontrollably or goes confused, warm them up and head down.'},
-  {ic:'bus',t:'No bus back',p:'Get times on Day 1. Keep the Rs 4,000 buffer untouched until the return is confirmed.'},
+  {ic:'bus',t:'No bus back',p:'Get times on Day 1. The Marathenna bus is a 2-hr ride — know the last one. Keep the Rs 4,000 buffer untouched until the return is confirmed.'},
   {ic:'flame',t:'Gas or kerosene refused on the bus',p:'Ask the conductor first. Backup: buy in Balangoda.'},
   {ic:'trash',t:'Rubbish and fire',p:'Carry out everything. Put out the fire completely before sleeping.'}
 ];
@@ -1139,7 +1134,6 @@ const store={
 };
 const rs=n=>'Rs '+n.toLocaleString('en-US');
 
-/* reveal observer */
 const revealObs=new IntersectionObserver(es=>{
   es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');revealObs.unobserve(en.target)}});
 },{threshold:.12,rootMargin:'0px 0px -30px 0px'});
@@ -1152,10 +1146,8 @@ function watchReveals(scope){
 
 /* ================= HERO ================= */
 (function heroInit(){
-  // split title into letters
   const h=document.getElementById('heroTitle');
   h.innerHTML=[...h.textContent].map((c,i)=>`<span style="--i:${i}">${c}</span>`).join('');
-  // parallax layers
   const hero=document.querySelector('.hero');
   const layers=[
     {el:document.getElementById('sun'),f:.05},
@@ -1179,7 +1171,6 @@ function watchReveals(scope){
     });
   }
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  // sun drift with mouse — desktop / fine pointers only
   if(window.matchMedia('(pointer:fine)').matches){
     const sun=document.getElementById('sun');
     hero.addEventListener('mousemove',e=>{
@@ -1210,7 +1201,6 @@ function watchReveals(scope){
     </div>`).join('');
 })();
 
-/* route draw */
 (function initRoute(){
   const svg=document.getElementById('routeSVG');
   const tp=document.getElementById('trailPath');
@@ -1463,16 +1453,13 @@ function updateKitCounts(){
 (function initNav(){
   const nav=document.getElementById('nav');
   window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
-  // burger
   document.getElementById('burger').addEventListener('click',()=>document.body.classList.toggle('menu-open'));
   document.querySelectorAll('.m-menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')));
-  // more dropdown
   const more=document.getElementById('navMore');
   const moreBtn=more.querySelector('.nav-dd-btn');
   moreBtn.addEventListener('click',e=>{e.stopPropagation();more.classList.toggle('open')});
   document.addEventListener('click',()=>more.classList.remove('open'));
   more.querySelectorAll('.nav-dd-menu a').forEach(a=>a.addEventListener('click',()=>more.classList.remove('open')));
-  // active section
   const links=[...document.querySelectorAll('.nav-links a, .m-menu a')];
   const obs=new IntersectionObserver(es=>{es.forEach(en=>{
     if(en.isIntersecting){
@@ -1484,7 +1471,6 @@ function updateKitCounts(){
   });
 })();
 
-/* watch all reveals last */
 watchReveals();
 </script>
 </body>
